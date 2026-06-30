@@ -1,0 +1,5755 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>UrbanStyle</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+
+<style>
+body{
+font-family:'Montserrat', sans-serif;
+margin:0;
+background:#0d0d0d;
+color:white;
+padding-top:90px;
+}
+
+.right-icons{
+display:flex;
+align-items:center;
+gap:20px;
+}
+
+.products-section h2{
+margin-left:40px;
+margin-top:40px;
+font-size:28px;
+}
+
+.search-icon{
+font-size:22px;
+cursor:pointer;
+}
+
+.login-btn{
+text-decoration:none;
+color:white;
+font-weight:600;
+font-size:15px;
+padding:10px 24px;
+border-radius:30px;
+background:linear-gradient(135deg,#e60023,#ff4d6d);
+box-shadow:0 5px 15px rgba(230,0,35,0.3);
+transition:0.4s;
+letter-spacing:0.5px;
+}
+
+.login-btn:hover{
+transform:translateY(-3px) scale(1.05);
+box-shadow:0 8px 25px rgba(230,0,35,0.5);
+}
+
+@keyframes glow{
+0%{box-shadow:0 0 5px rgba(230,0,35,0.4);}
+50%{box-shadow:0 0 20px rgba(230,0,35,0.8);}
+100%{box-shadow:0 0 5px rgba(230,0,35,0.4);}
+}
+
+.login-btn{
+animation:glow 3s infinite;
+}
+
+header{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+display:flex;
+align-items:center;
+justify-content:space-between;
+padding:18px 60px; 
+background:#111111;
+box-shadow:0 2px 12px rgba(0,0,0,0.08);
+z-index:1000;
+box-sizing:border-box;
+}
+
+.logo{
+font-size:30px;
+font-weight:700;
+letter-spacing:0.5px;
+}
+
+.logo span{
+    color:#e60023;
+}
+
+nav a{
+text-decoration:none;
+margin:0 18px;
+color:#111;
+font-weight:600;
+font-size:18px;
+transition:0.4s;
+padding:10px 16px;
+border-radius:6px;
+}
+
+nav a:hover{
+color:white;
+background:#e60023;
+transform:scale(1.08);
+box-shadow:0 5px 15px rgba(0,0,0,0.2);
+}
+
+.hero{
+height:78vh;
+position:relative;
+display:flex;
+align-items:center;
+justify-content:flex-start;
+padding-left:90px;
+overflow:hidden;
+background-size:cover;
+background-position:center;
+transition:1s;
+}
+
+/* DARK CINEMATIC OVERLAY */
+.hero::before{
+content:"";
+position:absolute;
+top:0;
+left:0;
+width:100%;
+height:100%;
+
+background:
+linear-gradient(
+90deg,
+rgba(0,0,0,0.88) 0%,
+rgba(0,0,0,0.55) 40%,
+rgba(0,0,0,0.82) 100%
+);
+
+z-index:1;
+}
+
+/* HERO TEXT POP HOVER */
+.hero:hover{
+transform:scale(1.03);
+letter-spacing:1px;
+}
+
+.products{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:30px;
+padding:40px;
+border:1px solid #ececec;
+}
+
+.card{
+background:#fafafa;
+padding:15px;
+border-radius:12px;
+box-shadow:0 6px 18px rgba(0,0,0,0.1);
+text-align:center;
+transition:0.3s;
+}
+
+.card:hover{
+transform:translateY(-8px) scale(1.03);
+}
+
+.card img{
+width:100%;
+height:260px;
+object-fit:cover;
+border-radius:10px
+}
+
+button{
+padding:13px 24px;
+
+background:linear-gradient(135deg,#111,#000);
+
+color:white;
+
+border:none;
+
+border-radius:12px;
+
+cursor:pointer;
+
+transition:0.4s;
+
+font-weight:700;
+
+letter-spacing:0.5px;
+
+box-shadow:
+0 8px 20px rgba(0,0,0,0.35);
+
+border:1px solid rgba(255,255,255,0.06);
+}
+
+button:hover{
+
+background:linear-gradient(135deg,#e60023,#ff3d5f);
+
+transform:translateY(-3px) scale(1.04);
+
+box-shadow:
+0 12px 28px rgba(230,0,35,0.4);
+
+}
+
+footer{
+background:black;
+color:white;
+text-align:center;
+padding:20px
+}
+
+.hero-text{
+font-family:'Playfair Display', serif;
+font-size:92px;
+font-weight:700;
+line-height:0.92;
+color:white;
+text-shadow:
+0 10px 30px rgba(0,0,0,0.7);
+
+animation:fadeHero 1s ease;
+}
+
+.hero-text span{
+color:#e60023;
+text-shadow:
+0 0 20px rgba(230,0,35,0.4);
+}
+
+@keyframes fadeHero{
+from{
+opacity:0;
+transform:translateY(40px);
+}
+
+to{
+opacity:1;
+transform:translateY(0);
+}
+
+}
+
+.hero-text:hover{
+transform:scale(1.15);
+letter-spacing:2px;
+color:#e8cfd6;
+text-shadow:0 10px 30px rgba(0,0,0,0.5);
+}
+
+.category-section{
+padding:40px;
+background:#0d0d0d;
+}
+
+.cat-grid{
+display:grid;
+grid-template-columns:1fr 1fr 1fr;
+grid-template-rows:250px 250px;
+gap:20px;
+}
+
+.cat{
+position:relative;
+overflow:hidden;
+border-radius:12px;
+cursor:pointer;
+}
+
+.cat img{
+width:100%;
+height:100%;
+object-fit:cover;
+transition:0.5s;
+}
+
+.cat:hover img{
+transform:scale(1.08);
+}
+
+.big{
+grid-row:span 2;
+}
+
+.cat-btn{
+position:absolute;
+top:50%;
+left:50%;
+transform:translate(-50%,-50%);
+background:white;
+padding:12px 22px;
+font-weight:700;
+letter-spacing:1px;
+font-size:14px;
+transition:0.3s;
+cursor:pointer;
+text-decoration: none;
+}
+
+.cat-btn:hover{
+background:#e60023;
+color:white;
+transform:translate(-50%,-50%) scale(1.08);
+}
+
+html{
+scroll-behavior:smooth;
+}
+
+.new-products{
+display:flex;
+gap:30px;
+justify-content:center;
+flex-wrap:wrap;
+}
+
+.p-card{
+width:180px;
+background:#fff;
+padding:15px;
+border-radius:10px;
+box-shadow:0 4px 12px rgba(0,0,0,0.08);
+position:relative;
+transition:0.3s;
+}
+
+.p-card:hover{
+transform:translateY(-6px);
+}
+
+.p-card img{
+width:100%;
+height:180px;
+object-fit:cover;
+border-radius:8px;
+}
+
+.price{
+color:#e60023;
+font-weight:bold;
+margin-top:5px;
+}
+
+.tag{
+position:absolute;
+top:10px;
+left:10px;
+padding:4px 10px;
+font-size:12px;
+color:white;
+border-radius:4px;
+}
+
+.sale{background:red;}
+.new{background:green;}
+
+/* NEW PRODUCT SLIDER */
+.new-launch{
+padding:60px 30px;
+background:#0d0d0d;
+}
+
+.section-title{
+font-size:32px;
+text-align:center;
+margin-bottom:30px;
+}
+
+.slider{
+display:flex;
+gap:25px;
+overflow-x:auto;
+padding:20px;
+scroll-behavior:smooth;
+}
+
+.slider::-webkit-scrollbar{
+display:none;
+}
+
+.product{
+min-width:220px;
+background:#1a1a1a;
+padding:15px;
+border-radius:18px;
+box-shadow:0 10px 30px rgba(0,0,0,0.35);
+position:relative;
+transition:0.4s;
+border:1px solid rgba(255,255,255,0.06);
+}
+
+.product:hover{
+transform:translateY(-10px) scale(1.02);
+box-shadow:0 18px 40px rgba(0,0,0,0.45);
+}
+
+.product img{
+width:100%;
+height:220px;
+object-fit:cover;
+border-radius:10px;
+}
+
+.product h4{
+color:white;
+font-size:18px;
+margin-top:14px;
+}
+
+.product .price{
+color:#ffffff;
+font-size:18px;
+font-weight:700;
+}
+
+.old{
+text-decoration:line-through;
+color:gray;
+font-size:14px;
+margin-left:5px;
+}
+
+.off{
+color:green;
+font-size:13px;
+margin-left:5px;
+}
+
+.btns{
+display:flex;
+justify-content:space-between;
+margin-top:10px;
+}
+
+.btns button{
+flex:1;
+padding:12px;
+
+border:none;
+
+background:#111;
+
+color:white;
+
+border-radius:12px;
+
+cursor:pointer;
+
+font-weight:700;
+
+transition:0.35s;
+
+border:1px solid rgba(255,255,255,0.05);
+}
+
+.btns button:hover{
+
+background:linear-gradient(135deg,#e60023,#ff4d6d);
+
+transform:translateY(-2px);
+
+box-shadow:
+0 10px 25px rgba(230,0,35,0.35);
+
+}
+
+/* HEART BUTTON */
+.wish{
+background:#eee !important;
+color:black !important;
+margin-left:8px;
+font-size:18px;
+transition:0.3s;
+}
+
+/* HEART HOVER */
+.wish:hover{
+background:#e60023 !important;
+color:white !important;
+transform:scale(1.15);
+}
+
+/* HEART POP CLICK */
+.wish.active{
+background:#e60023 !important;
+color:white !important;
+transform:scale(1.3);
+box-shadow:0 0 12px rgba(230,0,35,0.6);
+}
+
+.badge{
+position:absolute;
+top:10px;
+left:10px;
+padding:4px 8px;
+color:white;
+font-size:12px;
+border-radius:4px;
+}
+
+.red{background:red;}
+.green{background:green;}
+
+.features{
+display:flex;
+justify-content:space-around;
+align-items:center;
+flex-wrap:wrap;
+gap:25px;
+
+padding:50px 20px;
+
+background:linear-gradient(180deg,#111,#181818);
+border-top:1px solid #2a2a2a;
+border-bottom:1px solid #2a2a2a;
+}
+
+.feature-box{
+text-align:center;
+width:220px;
+padding:20px;
+transition:0.3s;
+background:#1a1a1a;
+border-radius:12px;
+border:1px solid #2a2a2a;
+box-shadow:0 4px 12px rgba(0,0,0,0.3);
+}
+
+.feature-box:hover{
+transform:translateY(-5px);
+background:#222;
+border-color:#e60023;
+box-shadow:0 0 20px rgba(230,0,35,0.25);
+}
+
+.icon{
+font-size:32px;
+margin-bottom:10px;
+color:#e60023;
+display:inline-block;
+animation:floatIcon 2.5s infinite ease-in-out;
+}
+
+/* slow floating animation */
+@keyframes floatIcon{
+0%{transform:translateY(0);}
+50%{transform:translateY(-6px);}
+100%{transform:translateY(0);}
+}
+
+.feature-box:hover .icon{
+animation:bounceIcon 0.6s;
+}
+
+@keyframes bounceIcon{
+0%{transform:scale(1);}
+40%{transform:scale(1.3);}
+60%{transform:scale(0.9);}
+100%{transform:scale(1);}
+}
+
+.feature-box h4{
+color:white;
+}
+
+.feature-box p{
+color:#b0b0b0;
+}
+
+/* PREMIUM VIDEO SECTION */
+.latest-section{
+padding:80px 20px;
+background:#0d0d0d;
+text-align:center;
+}
+
+.latest-title{
+font-size:36px;
+margin-bottom:40px;
+font-weight:700;
+}
+
+.latest-grid{
+display:grid;
+grid-template-columns:repeat(3, 1fr);
+gap:30px;
+max-width:1200px;
+margin:auto;
+}
+
+/* BIG CARD */
+.latest-card{
+position:relative;
+width:100%;
+height:350px;
+overflow:hidden;
+border-radius:16px;
+cursor:pointer;
+box-shadow:0 10px 30px rgba(0,0,0,0.15);
+}
+
+.latest-card img{
+width:100%;
+height:100%;
+object-fit:cover;
+transition:0.5s;
+}
+
+.hover-video{
+position:absolute;
+width:100%;
+height:100%;
+object-fit:cover;
+top:0;
+left:0;
+opacity:0;
+transition:0.5s;
+}
+
+/* hover effect */
+.latest-card:hover .hover-video{
+opacity:1;
+}
+
+/* text overlay */
+.overlay{
+position:absolute;
+bottom:25px;
+left:25px;
+color:white;
+text-align:left;
+}
+
+.overlay h3{
+margin:0;
+font-size:26px;
+font-weight:700;
+}
+
+.overlay p{
+margin:0;
+font-size:15px;
+}
+
+.latest-card img,
+.model-video{
+position:absolute;
+top:0;
+left:0;
+width:100%;
+height:100%;
+object-fit:cover;
+}
+
+.model-video{
+position:absolute;
+top:0;
+left:0;
+width:100%;
+height:100%;
+object-fit:cover;
+opacity:0;
+transition:0.4s;
+}
+
+/* TITLE STYLE */
+.latest-title{
+font-size:38px;
+font-weight:700;
+text-align:center;
+margin-bottom:10px;
+}
+
+.title-line{
+width:60px;
+height:3px;
+background:#e60023;
+margin:0 auto 40px auto;
+border-radius:3px;
+}
+
+/* GRID */
+.latest-grid{
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:30px;
+max-width:1200px;
+margin:auto;
+}
+
+/* CARD */
+.latest-card{
+position:relative;
+height:350px;
+overflow:hidden;
+border-radius:14px;
+cursor:pointer;
+box-shadow:0 10px 30px rgba(0,0,0,0.12);
+}
+
+.latest-card img{
+width:100%;
+height:100%;
+object-fit:cover;
+transition:0.5s ease;
+}
+
+/* OVERLAY */
+.blog-overlay{
+position:absolute;
+bottom:20px;
+left:20px;
+color:white;
+z-index:2;
+transition:0.4s;
+opacity:0.9;
+}
+
+.latest-card:hover .blog-overlay{
+opacity:1;
+transform:scale(1.05);
+}
+
+/* IMAGE ZOOM + SOFT DARK BLUR */
+.latest-card:hover img{
+transform:scale(1.12);
+filter: blur(2px) brightness(0.6);
+}
+
+/* TEXT ALWAYS VISIBLE */
+.blog-overlay{
+position:absolute;
+bottom:20px;
+left:20px;
+color:white;
+z-index:2;
+}
+
+/* REMOVE ANY WHITE BG */
+.latest-card::after{
+content:"";
+position:absolute;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:rgba(0,0,0,0);
+transition:0.4s;
+border-radius:14px;
+}
+
+.latest-card:hover::after{
+background:rgba(0,0,0,0.25);
+}
+
+.blog-overlay h3{
+margin:0;
+font-size:22px;
+}
+
+.blog-overlay p{
+font-size:14px;
+margin-top:6px;
+max-width:260px;
+}
+
+/* RED TEXT */
+.red-text{
+color:#e60023;
+}
+
+/* READ BUTTON */
+.read-btn{
+margin-top:10px;
+padding:8px 16px;
+border:none;
+background:#e60023;
+color:white;
+border-radius:6px;
+cursor:pointer;
+transition:0.3s;
+}
+
+.read-btn:hover{
+background:black;
+}
+
+/* RESPONSIVE */
+@media(max-width:1000px){
+.latest-grid{
+grid-template-columns:1fr;
+}
+}
+
+/* HERO CONTENT CENTER FIX */
+.hero-content{
+position:relative;
+z-index:2;
+display:flex;
+flex-direction:column;
+align-items:flex-start;
+}
+
+/* FOOTER */
+.main-footer{
+background:#f7f7f7;
+padding:50px 40px;
+}
+
+.footer-grid{
+display:grid;
+grid-template-columns:repeat(4,1fr);
+gap:40px;
+max-width:1200px;
+margin:auto;
+}
+
+.footer-grid h3{
+margin-bottom:15px;
+color:#000;   
+font-size:18px;
+font-weight:700;
+}
+
+.footer-grid p{
+margin:6px 0;
+color:#555;
+cursor:pointer;
+}
+
+.footer-grid p:hover{
+color:#e60023;
+}
+
+.brand{
+font-size:26px;
+font-weight:700;
+color: #000;
+}
+
+.brand span{
+color:#e60023;
+}
+
+.copyright{
+text-align:center;
+margin-top:30px;
+padding-top:20px;
+border-top:1px solid #ddd;
+color:#666;
+}
+
+/* NEWSLETTER */
+.newsletter{
+background:#e9e9e9;
+padding:25px 0;
+width:100%;
+margin-top: 80px;
+}
+
+.newsletter-inner{
+max-width:1200px;
+margin:auto;
+display:flex;
+align-items:center;
+justify-content:space-between;
+gap:20px;
+}
+
+.newsletter{
+width:100%;
+position:relative;
+z-index:5;
+}
+
+.newsletter-text{
+font-size:18px;
+font-weight:600;
+color:#222;
+}
+
+.newsletter-form{
+display:flex;
+}
+
+.newsletter-form input{
+padding:13px;
+width:260px;
+border:1px solid #ccc;
+border-right:none;
+outline:none;
+}
+
+.newsletter-form button{
+padding:13px 25px;
+background:#e60023;
+color:white;
+border:none;
+font-weight:bold;
+cursor:pointer;
+}
+
+.newsletter-form button:hover{
+background:black;
+}
+
+.newsletter-social span{
+margin-left:15px;
+font-weight:600;
+cursor:pointer;
+color:#222;
+}
+
+/* LUXURY STRIP */
+.luxury-strip{
+width:100%;
+background:linear-gradient(90deg,#000,#1a1a1a,#000);
+color:#fff;
+padding:18px 0;
+overflow:hidden;
+position:relative;
+margin:80px 0;  
+}
+
+.luxury-track{
+display:flex;
+gap:60px;
+white-space:nowrap;
+font-size:15px;
+letter-spacing:2px;
+font-weight:600;
+animation:luxuryScroll 18s linear infinite;
+}
+
+.luxury-track span{
+opacity:0.9;
+}
+
+.luxury-track span:hover{
+color:#e60023;
+transition:0.3s;
+}
+
+/* smooth luxury animation */
+@keyframes luxuryScroll{
+0%{transform:translateX(100%);}
+100%{transform:translateX(-100%);}
+}
+
+/* HERO RED LINE */
+.hero-line{
+width:180px;
+height:4px;
+background:#e60023;
+margin-top:18px;
+border-radius:20px;
+
+box-shadow:
+0 0 20px rgba(230,0,35,0.5);
+}
+
+.hero-sub{
+color:#d7d7d7;
+font-size:22px;
+letter-spacing:5px;
+margin-top:28px;
+font-weight:300;
+animation:fadeHero 1.4s ease;
+}
+
+.hero-btn{
+margin-top:35px;
+padding:18px 42px;
+border:none;
+border-radius:16px;
+
+background:
+linear-gradient(135deg,#e60023,#ff003c);
+
+color:white;
+font-size:20px;
+font-weight:700;
+letter-spacing:1px;
+cursor:pointer;
+
+box-shadow:
+0 10px 30px rgba(230,0,35,0.45);
+
+transition:0.4s;
+}
+
+.hero-btn:hover{
+transform:translateY(-6px) scale(1.05);
+
+box-shadow:
+0 18px 40px rgba(230,0,35,0.6);
+}
+
+/* HOVER EFFECT */
+.hero-content:hover .hero-line{
+width:140px;
+background:#e60023;
+box-shadow:0 4px 12px rgba(0,0,0,0.3);
+}
+
+/* LUXURY BIG SEARCH BAR */
+.big-search{
+width:55%;
+display:flex;
+align-items:center;
+
+background:rgba(255,255,255,0.06);
+
+backdrop-filter:blur(14px);
+
+border:1px solid rgba(255,255,255,0.08);
+
+padding:16px 24px;
+
+border-radius:50px;
+
+box-shadow:
+0 10px 35px rgba(0,0,0,0.45);
+
+margin:0 auto;
+
+transition:0.4s;
+}
+
+.big-search:hover{
+transform:scale(1.02);
+border:1px solid rgba(230,0,35,0.4);
+
+box-shadow:
+0 0 25px rgba(230,0,35,0.15),
+0 15px 40px rgba(0,0,0,0.5);
+}
+
+.search-icon-big{
+font-size:20px;
+color:#ff3b5c;
+margin-right:14px;
+}
+
+.big-search input{
+flex:1;
+border:none;
+outline:none;
+background:transparent;
+color:white;
+font-size:16px;
+font-weight:500;
+letter-spacing:1px;
+}
+
+.big-search input::placeholder{
+color:#8f8f8f;
+letter-spacing:1px;
+}
+
+.bottom-nav{
+position:fixed;
+bottom:0;
+left:0;
+width:100%;
+background:#111;
+display:flex;
+justify-content:space-around;
+align-items:center;
+padding:12px 0;
+box-shadow:0 -5px 20px rgba(0,0,0,0.15);
+z-index:9999;
+border-top:1px solid #222;
+}
+
+/* ITEMS */
+.nav-item{
+text-decoration:none;
+color:#888;
+font-size:12px;
+display:flex;
+flex-direction:column;
+align-items:center;
+transition:0.3s;
+font-weight:600;
+position:relative;
+}
+
+.nav-item span{
+font-size:22px;
+margin-bottom:4px;
+transition:0.3s;
+}
+
+.nav-item.active{
+color:#888;
+}
+
+.nav-item.active span{
+transform:translateY(-3px);
+}
+
+.nav-item:hover{
+color:#fff;
+transform:scale(1.1);
+}
+
+/* CLICK EFFECT */
+.nav-item:active{
+transform:scale(0.9);
+}
+
+.badge-count{
+position:absolute;
+top:-6px;
+right:-10px;
+background:#e60023;
+color:white;
+font-size:10px;
+padding:3px 6px;
+border-radius:50%;
+font-weight:bold;
+}
+
+/* BODY SPACE */
+body{
+padding-bottom:90px;
+}
+
+/* CART COUNT BADGE */
+.cart-count{
+position:absolute;
+top:-6px;
+right:-10px;
+background:#e60023;
+color:white;
+font-size:10px;
+padding:3px 6px;
+border-radius:50%;
+font-weight:bold;
+min-width:18px;
+text-align:center;
+}
+
+/* TOP WISHLIST ICON */
+.top-wishlist{
+font-size:22px;
+cursor:pointer;
+margin-left:15px;
+margin-right:25px;
+position:relative;
+transition:0.3s;
+}
+
+.top-wishlist:hover{
+transform:scale(1.2);
+color:#e60023;
+}
+
+/* counter */
+.wish-count{
+position:absolute;
+top:-8px;
+right:-10px;
+background:#e60023;
+color:white;
+font-size:10px;
+padding:3px 6px;
+border-radius:50%;
+font-weight:bold;
+}
+
+.cart-count{
+position:absolute;
+top:-8px;
+right:-10px;
+background:#e60023;
+color:white;
+font-size:10px;
+padding:3px 6px;
+border-radius:50%;
+font-weight:bold;
+}
+
+.product-modal{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:rgba(0,0,0,0.6);
+display:none;
+justify-content:center;
+align-items:center;
+z-index:10000;
+}
+
+.modal-content{
+background:white;
+width:90%;
+max-width:500px;
+padding:20px;
+border-radius:20px;
+position:relative;
+}
+
+.close-btn{
+position:absolute;
+top:10px;
+right:20px;
+font-size:22px;
+cursor:pointer;
+}
+
+.modal-content img{
+width:100%;
+border-radius:15px;
+margin-bottom:10px;
+}
+
+.modal-price{
+color:#e60023;
+font-size:24px;
+font-weight:bold;
+}
+
+/* 🔥 FULL PRODUCT PAGE */
+.product-page{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:white;
+z-index:20000;
+display:none;
+overflow-y:auto;
+}
+
+/* header */
+.product-header{
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:15px 20px;
+box-shadow:0 2px 10px rgba(0,0,0,0.08);
+position:sticky;
+top:0;
+background:white;
+z-index:5;
+}
+
+.product-container{
+display:flex;
+gap:40px;
+max-width:1000px;
+margin:40px auto;
+padding:20px;
+}
+
+.product-img{
+width:420px;
+height:450px;
+object-fit:cover;
+border-radius:20px;
+display:block;
+margin:20px auto;
+box-shadow:0 10px 30px rgba(0,0,0,0.2);
+}
+
+.product-img:hover{
+transform:scale(1.08);
+transition: 0.4s;
+}
+
+.product-details{
+flex:1;
+padding: 20px;
+}
+
+.back-btn{
+font-size:22px;
+cursor:pointer;
+}
+
+.p-title{
+font-size:22px;
+font-weight:700;
+margin-bottom:5px;
+}
+
+.p-price{
+font-size:24px;
+color:#e60023;
+font-weight:bold;
+}
+
+.p-old{
+text-decoration:line-through;
+color:gray;
+margin-left:10px;
+}
+
+/* size buttons */
+.size-box{
+display:flex;
+gap:10px;
+margin-top:15px;
+flex-wrap:wrap;
+}
+
+.size{
+border:1px solid #ccc;
+padding:10px 14px;
+border-radius:8px;
+cursor:pointer;
+}
+
+.size:hover{
+background:#e60023;
+color:white;
+transform: scale(1.1);
+}
+
+.size.active{
+background:#000;
+color:white;
+}
+
+/* quantity */
+.qty-box{
+display:flex;
+align-items:center;
+gap:10px;
+margin-top:15px;
+}
+
+.qty-btn{
+background:#eee;
+border:none;
+padding:8px 14px;
+font-size:18px;
+cursor:pointer;
+}
+
+.qty-num{
+font-size:18px;
+width:30px;
+text-align:center;
+}
+
+/* bottom buttons */
+.bottom-buy{
+position:fixed;
+bottom:0;
+left:0;
+width:100%;
+display:flex;
+}
+
+.add-btn{
+flex:1;
+padding:18px;
+border:none;
+background:black;
+color:white;
+font-size:16px;
+font-weight:700;
+cursor:pointer;
+}
+
+.buy-btn{
+flex:1;
+padding:18px;
+border:none;
+background:#f5c518;
+font-size:16px;
+font-weight:700;
+cursor:pointer;
+}
+
+/* SIDEBAR */
+.sidebar{
+position:fixed;
+top:0;
+left:-100%;
+width: 360px;             
+max-width:420px;
+height:100%;
+background:linear-gradient(180deg,#0f0f0f,#1c1c1c,#000);
+color:white;
+padding:25px;
+z-index:99999;
+transition:0.5s cubic-bezier(.77,0,.18,1);
+overflow-y:auto;
+box-shadow:8px 0 40px rgba(0,0,0,0.8);
+}
+
+/* SIDEBAR BLUR OVERLAY */
+.menu-overlay{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:rgba(0,0,0,0.65);
+backdrop-filter:blur(6px);
+z-index:99998;
+display:none;
+transition:0.4s;
+}
+
+.menu-overlay.active{
+display:block;
+}
+
+/* open */
+.sidebar.active{
+left:0;
+}
+
+/* glass effect */
+.sidebar::before{
+content:"";
+position:absolute;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:linear-gradient(120deg,transparent,rgba(255,255,255,0.05),transparent);
+pointer-events:none;
+}
+
+/* close button */
+.close-btn-menu{
+position:absolute;
+right:20px;
+top:18px;
+font-size:28px;
+cursor:pointer;
+transition:0.3s;
+}
+
+.close-btn-menu:hover{
+color:#ff2e63;
+transform:rotate(90deg);
+}
+
+/* logo */
+.sidebar h2{
+margin-top:5px;
+margin-bottom:25px;
+font-size:28px;
+letter-spacing:1px;
+}
+
+/* profile box */
+.profile-box{
+background:rgba(255,255,255,0.05);
+padding:16px;
+border-radius:14px;
+margin-bottom:25px;
+border:1px solid rgba(255,255,255,0.08);
+}
+
+/* menu titles */
+.menu-title{
+margin-top:25px;
+margin-bottom:10px;
+color:#888;
+font-size:12px;
+letter-spacing:2px;
+}
+
+/* menu items */
+.side-item{
+display:block;
+padding:15px 14px;
+margin-bottom:8px;
+border-radius:12px;
+text-decoration:none;
+color:#eee;
+font-weight:500;
+transition:0.35s;
+background:rgba(255,255,255,0.02);
+}
+
+.side-item:hover{
+background:linear-gradient(90deg,#e60023,#ff4d6d);
+color:white;
+padding-left:22px;
+box-shadow:0 8px 25px rgba(230,0,35,0.4);
+}
+
+/* profile box */
+.profile-box{
+background:#151515;
+padding:15px;
+border-radius:12px;
+margin-bottom:20px;
+}
+
+.profile-box h4{
+margin:0;
+}
+
+.profile-box p{
+margin:3px 0;
+color:#aaa;
+font-size:13px;
+}
+
+.menu-title{
+margin-top:20px;
+margin-bottom:10px;
+color:#888;
+font-size:13px;
+letter-spacing:1px;
+}
+
+#cartPage{
+background:#f1f3f6;
+}
+
+#cartItems{
+padding:20px;
+padding-bottom:140px;
+max-width:1100px;
+margin:auto;
+}
+
+.login-popup{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:rgba(0,0,0,0.45);
+display:none;
+justify-content:center;
+align-items:center;
+z-index:999999;
+}
+
+.login-box{
+width:380px;
+background:white;
+padding:30px;
+border-radius:20px;
+position:relative;
+}
+
+.close-login{
+position:absolute;
+top:15px;
+left:20px;
+font-size:30px;
+cursor:pointer;
+color:#111;
+font-weight:bold;
+transition:0.3s;
+}
+
+.close-login:hover{
+color:#e60023;
+transform:scale(1.1);
+}
+
+.urban-logo{
+text-align:center;
+font-size:40px;
+font-weight:800;
+margin-bottom:20px;
+letter-spacing:1px;
+color:black;
+}
+
+.urban-logo span{
+color:#e60023;
+}
+
+.login-box h2{
+font-size:34px;
+margin-bottom:10px;
+}
+
+.login-text{
+font-size:18px;
+color:#666;
+margin-bottom:20px;
+}
+
+.phone-box{
+display:flex;
+align-items:center;
+border:2px solid #2874f0;
+border-radius:10px;
+padding:12px;
+margin-bottom:20px;
+}
+
+.phone-box select{
+border:none;
+outline:none;
+font-size:18px;
+background:none;
+margin-right:10px;
+}
+
+.phone-box input{
+border:none;
+outline:none;
+font-size:18px;
+flex:1;
+}
+
+.email-link{
+display:block;
+text-align:right;
+margin-bottom:20px;
+color:#2874f0;
+font-weight:600;
+text-decoration:none;
+}
+
+.terms{
+font-size:14px;
+color:#666;
+line-height:1.5;
+margin-bottom:20px;
+}
+
+.continue-btn{
+width:100%;
+padding:15px;
+border:none;
+background:#e60023;
+color:white;
+font-weight:700;
+font-size:22px;
+border-radius:10px;
+cursor:pointer;
+}
+
+.continue-btn:hover{
+background:#2874f0;
+color:white;
+}
+
+.product-page h4,
+.product-page p,
+.product-page .size,
+.product-page .qty-num,
+.product-page .back-btn{
+    color:black;
+}
+
+.product-page .qty-btn{
+    color:black;
+    background:#eee;
+}
+
+.product-page .product-header h2{
+    color:black;
+}
+
+.profile-card{
+background:white;
+border-radius:15px;
+overflow:hidden;
+box-shadow:0 2px 10px rgba(0,0,0,.08);
+}
+
+.profile-card h3{
+padding:20px;
+margin:0;
+color:black;
+border-bottom:1px solid #eee;
+}
+
+.profile-item{
+padding:18px 20px;
+color:black;
+border-bottom:1px solid #eee;
+cursor:pointer;
+transition:.3s;
+}
+
+.profile-item:hover{
+background:#f7f7f7;
+padding-left:30px;
+}
+
+.size-option{
+width:70px;
+height:55px;
+border:1px solid #ccc;
+background:white;
+color:black;
+font-size:18px;
+cursor:pointer;
+}
+
+.size-option.active{
+background:#e60023;
+color:white;
+border:none;
+}
+
+.pay-card{
+display:flex;
+align-items:center;
+gap:15px;
+padding:18px;
+margin-bottom:15px;
+background:white;
+border:2px solid #eee;
+border-radius:15px;
+cursor:pointer;
+transition:.3s;
+box-shadow:0 2px 10px rgba(0,0,0,.08);
+}
+
+.pay-card:hover{
+border-color:#2874f0;
+}
+
+.pay-card span{
+font-size:30px;
+}
+
+.pay-card h4{
+margin:0;
+color:#111;
+}
+
+.pay-card p{
+margin:3px 0 0;
+color:#777;
+font-size:14px;
+}
+
+.pay-card input{
+transform:scale(1.2);
+}
+
+.active-pay{
+border-color:#2874f0;
+background:#f5f9ff;
+}
+
+.pay-btn{
+width:100%;
+margin-top:20px;
+padding:18px;
+background:#fb641b;
+color:white;
+border:none;
+border-radius:12px;
+font-size:18px;
+font-weight:bold;
+}
+
+.detail-card{
+
+background:white;
+padding:18px;
+border-radius:18px;
+margin-bottom:15px;
+box-shadow:0 3px 12px rgba(0,0,0,.08);
+
+}
+
+.track-step{
+
+font-size:15px;
+font-weight:600;
+padding:10px 0;
+
+}
+
+.track-line{
+
+width:2px;
+height:25px;
+background:#ddd;
+margin-left:10px;
+
+}
+
+.active{
+
+color:#00a650;
+
+}
+
+.help-btn{
+
+width:100%;
+padding:15px;
+border:none;
+border-radius:14px;
+font-size:16px;
+font-weight:700;
+background:#f5f5f5;
+margin-top:10px;
+cursor:pointer;
+
+}
+
+.cancel-btn{
+
+width:100%;
+padding:15px;
+border:none;
+border-radius:14px;
+font-size:16px;
+font-weight:700;
+background:#e60023;
+color:white;
+margin-top:10px;
+cursor:pointer;
+
+}
+
+</style>
+</head>
+
+<body>
+   <div class="menu-overlay" id="overlay" onclick="closeMenu()"></div>
+
+<!-- SIDEBAR -->
+<div class="sidebar" id="sidebar">
+
+<span class="close-btn-menu" onclick="closeMenu()">✕</span>
+
+<h2>URBAN<span style="color:#e60023;">STYLE</span></h2>
+
+<div class="profile-box">
+<h4>Hello, Guest</h4>
+<p>Welcome to UrbanStyle</p>
+</div>
+
+<div class="menu-title">SHOP</div>
+<a href="#" class="side-item">🏠 Home</a>
+<a href="#" class="side-item">👕 Men</a>
+<a href="#" class="side-item">👗 Women</a>
+<a href="#" class="side-item">🧒 Kids</a>
+<a href="#" class="side-item">👟 Sneakers</a>
+<a href="#" class="side-item">🔥 New Arrivals</a>
+<a href="#" class="side-item">💎 Premium</a>
+
+<div class="menu-title">MY ACCOUNT</div>
+<a href="#" class="side-item">❤️ Wishlist</a>
+<a href="#" class="side-item">🛒 My Cart</a>
+<a href="#" class="side-item">📦 Orders</a>
+<a href="#" class="side-item">👤 Profile</a>
+
+<div class="menu-title">SUPPORT</div>
+<a href="#" class="side-item">⚙ Settings</a>
+<a href="#" class="side-item">📞 Contact Us</a>
+<a href="#" class="side-item">❓ Help Center</a>
+
+<div style="margin-top:25px;">
+<a href="#" class="login-btn" style="display:block;text-align:center;">Login / Register</a>
+</div>
+
+</div>
+
+<header>
+
+<div style="display:flex;align-items:center;gap:15px;">
+<span style="font-size:24px;cursor:pointer;" onclick="openMenu()">☰</span>
+<div class="logo">URBAN<span>STYLE</span></div>
+</div>
+
+<div class="big-search">
+   <span class="search-icon-big">🔍</span>
+   <input type="text" id="searchInput" placeholder="Search 'Shoes'">
+</div>
+
+<div class="right-icons">
+
+<!-- WISHLIST -->
+<div class="top-wishlist" onclick="openWishlist()">
+❤
+<span class="wish-count">0</span>
+</div>
+
+<!-- CART -->
+<div class="top-wishlist" onclick="openCart()">
+🛒
+<span class="cart-count">0</span>
+</div>
+
+<a href="#" class="login-btn" id="loginBtn" onclick="handleLogin()">Login</a>
+
+</div>
+
+</header>
+
+<div class="hero" id="hero">
+<div class="hero-content">
+
+<div class="hero-text">
+WEAR YOUR <br>
+<span>CONFIDENCE</span>
+</div>
+
+<div class="hero-line"></div>
+
+<p class="hero-sub">
+NEW COLLECTION 2026
+</p>
+
+<button class="hero-btn">
+SHOP NOW
+</button>
+
+</div>
+
+</div>   
+
+
+<!-- CATEGORY BANNERS -->
+<div class="category-section">
+<div class="cat-grid">
+
+<div class="cat big">
+<img src="https://images.unsplash.com/photo-1520975916090-3105956dac38?q=80&w=800">
+<a href="men.html" class="cat-btn">FOR MEN</a>
+</div>
+
+<div class="cat small">
+<img src="https://images.unsplash.com/photo-1518831959646-742c3a14ebf7?q=80&w=800">
+<a href="kids.html" class="cat-btn">FOR KIDS</a>
+</div>
+
+<div class="cat big">
+<img src="https://images.unsplash.com/photo-1483985988355-763728e1935b?q=80&w=800">
+<a href="women.html" class="cat-btn">FOR WOMEN</a>
+</div>
+
+<div class="cat small">
+<img src="https://images.unsplash.com/photo-1543163521-1bf539c55dd2?q=80&w=800">
+<a href="new.html" class="cat-btn">ACCESSORIES</a>
+</div>
+</div>
+
+<!-- NEW ARRIVALS SLIDER -->
+<section class="new-arrivals">
+
+<h2 class="section-title">New Arrivals</h2>
+<div class="title-line"></div>
+
+<div class="slider">
+
+<!-- PRODUCT 1 -->
+<div class="product">
+   <span class="badge red">SALE</span>
+   <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?q=80&w=800">
+   <h4>Running Sneakers</h4>
+
+   <p class="price">
+      ₹1,999
+      <span class="old">₹3,999</span>
+      <span class="off">50% OFF</span>
+   </p>
+
+   <div class="btns">
+      <button onclick="addCart(this);event.stopPropagation();">Add Cart</button>
+      <button class="wish" onclick="addWish(this);event.stopPropagation();">❤</button>
+   </div>
+</div>
+
+<!-- PRODUCT 2 -->
+<div class="product">
+<span class="badge green">NEW</span>
+<img src="https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?q=80&w=800">
+<h4>Women Pink Top</h4>
+
+<p class="price">
+₹899 
+<span class="old">₹1,599</span>
+<span class="off">44% OFF</span>
+</p>
+
+<div class="btns">
+<button onclick="addCart(this);event.stopPropagation();">Add Cart</button>
+<button class="wish" onclick="addWish(this);event.stopPropagation();">❤</button>
+</div>
+</div>
+
+<!-- PRODUCT 3 -->
+<div class="product">
+<span class="badge green">NEW</span>
+<img src="https://images.unsplash.com/photo-1520975916090-3105956dac38?q=80&w=800">
+<h4>Winter Jacket</h4>
+
+<p class="price">
+₹3,499 
+<span class="old">₹5,999</span>
+<span class="off">40% OFF</span>
+</p>
+
+<div class="btns">
+<button onclick="addCart(this);event.stopPropagation();">Add Cart</button>
+<button class="wish" onclick="addWish(this);event.stopPropagation();">❤</button>
+</div>
+</div>
+
+<!-- PRODUCT 4 -->
+<div class="product">
+<img src="https://images.unsplash.com/photo-1593030761757-71fae45fa0e7?q=80&w=800">
+
+<h4>Leather Handbag</h4>
+
+<p class="price">
+₹2,199
+<span class="old">₹3,499</span>
+<span class="off">37% OFF</span>
+</p>
+
+<div class="btns">
+<button onclick="addCart(this);event.stopPropagation();">
+Add Cart
+</button>
+
+<button class="wish"
+onclick="addWish(this);event.stopPropagation();">
+❤
+</button>
+</div>
+
+</div>
+
+<!-- PRODUCT 5 -->
+<div class="product">
+<img src="https://images.unsplash.com/photo-1523381210434-271e8be1f52b?q=80&w=800">
+<h4>Casual Shirt</h4>
+
+<p class="price">
+₹1,299 
+<span class="old">₹2,199</span>
+<span class="off">41% OFF</span>
+</p>
+
+<div class="btns">
+<button onclick="addCart(this);event.stopPropagation();">Add Cart</button>
+<button class="wish" onclick="addWish(this);event.stopPropagation();">❤</button>
+</div>
+</div>
+
+<!-- PRODUCT 6 -->
+<div class="product">
+<img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?q=80&w=800">
+<h4>Oversized T-shirt</h4>
+
+<p class="price">
+₹799 
+<span class="old">₹1,299</span>
+<span class="off">38% OFF</span>
+</p>
+
+<div class="btns">
+<button onclick="addCart(this);event.stopPropagation();">Add Cart</button>
+<button class="wish" onclick="addWish(this);event.stopPropagation();">❤</button>
+</div>
+</div>
+
+</div>
+</section>
+
+<!-- MAIN PRODUCTS TITLE CENTER -->
+<h1 style="
+text-align:center;
+margin-top:40px;
+font-size:38px;
+font-weight:700;
+letter-spacing:1px;
+">
+Products
+</h1>
+
+<div style="
+width:90px;
+height:4px;
+background:#e60023;
+margin:10px auto 40px auto;
+border-radius:4px;
+"></div>
+
+<!-- SNEAKERS SECTION -->
+<section class="new-launch">
+
+<h2 style="text-align:left;margin-left:30px;">Sneakers</h2>
+<div style="width:60px;height:3px;background:#e60023;margin-left:30px;margin-bottom:25px;"></div>
+
+<div class="slider">
+
+<div class="product">
+<img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?q=80&w=800">
+<h4>Air Runner</h4>
+<p class="price">
+₹2,499 <span class="old">₹4,999</span> <span class="off">50% OFF</span>
+</p>
+<div class="btns"><button onclick="addCart(this);event.stopPropagation();">
+Add Cart
+</button><button class="wish"
+onclick="addWish(this);event.stopPropagation();">
+❤
+</button></div>
+</div>
+
+<div class="product">
+<img src="https://images.unsplash.com/photo-1600185365926-3a2ce3cdb9eb?q=80&w=800">
+<h4>Urban White</h4>
+<p class="price">₹1,999</p>
+<div class="btns"><button onclick="addCart(this);event.stopPropagation();">
+Add Cart
+</button><button class="wish"
+onclick="addWish(this);event.stopPropagation();">
+❤
+</button></div>
+</div>
+
+<div class="product">
+<img src="https://images.unsplash.com/photo-1606813907291-d86efa9b94db?q=80&w=800">
+<h4>Sport Black</h4>
+<p class="price">
+₹2,199 <span class="old">₹3,999</span> <span class="off">45% OFF</span>
+</p>
+<div class="btns"><button onclick="addCart(this);event.stopPropagation();">
+Add Cart
+</button><button class="wish"
+onclick="addWish(this);event.stopPropagation();">
+❤
+</button></div>
+</div>
+
+<div class="product">
+<img src="https://images.unsplash.com/photo-1525966222134-fcfa99b8ae77?q=80&w=800">
+<h4>Classic Street</h4>
+<p class="price">₹1,799</p>
+<div class="btns"><button onclick="addCart(this);event.stopPropagation();">
+Add Cart
+</button><button class="wish"
+onclick="addWish(this);event.stopPropagation();">
+❤
+</button></div>
+</div>
+
+<div class="product">
+<img src="https://images.unsplash.com/photo-1519744346363-dc8d8c3a9d5e?q=80&w=800">
+<h4>Pro Runner</h4>
+<p class="price">
+₹2,699 <span class="old">₹3,499</span> <span class="off">23% OFF</span>
+</p>
+<div class="btns"><button onclick="addCart(this);event.stopPropagation();">
+Add Cart
+</button><button class="wish"
+onclick="addWish(this);event.stopPropagation();">
+❤
+</button></div>
+</div>
+
+</div>
+</section>
+
+<section class="new-launch">
+
+<h2 style="text-align:left;margin-left:30px;">Pants</h2>
+<div style="width:60px;height:3px;background:#e60023;margin-left:30px;margin-bottom:25px;"></div>
+
+<div class="slider">
+
+<div class="product">
+<img src="https://images.unsplash.com/photo-1541099649105-f69ad21f3246?q=80&w=800">
+<h4>Formal Black</h4>
+<p class="price">
+₹1,299 <span class="old">₹1,999</span> <span class="off">35% OFF</span>
+</p>
+<div class="btns"><button onclick="addCart(this);event.stopPropagation();">
+Add Cart
+</button><button class="wish"
+onclick="addWish(this);event.stopPropagation();">
+❤
+</button></div>
+</div>
+
+<div class="product">
+<img src="https://images.unsplash.com/photo-1473966968600-fa801b869a1a?q=80&w=800">
+<h4>Office Fit</h4>
+<p class="price">₹1,499</p>
+<div class="btns"><button onclick="addCart(this);event.stopPropagation();">
+Add Cart
+</button><button class="wish"
+onclick="addWish(this);event.stopPropagation();">
+❤
+</button></div>
+</div>
+
+<div class="product">
+<img src="https://images.unsplash.com/photo-1584865288642-42078afe6942?q=80&w=800">
+<h4>Baggy Style</h4>
+<p class="price">
+₹1,799 <span class="old">₹2,499</span> <span class="off">28% OFF</span>
+</p>
+<div class="btns"><button onclick="addCart(this);event.stopPropagation();">
+Add Cart
+</button><button class="wish"
+onclick="addWish(this);event.stopPropagation();">
+❤
+</button></div>
+</div>
+
+<div class="product">
+<img src="https://images.unsplash.com/photo-1603252109303-2751441dd157?q=80&w=800">
+<h4>Chino Pants</h4>
+<p class="price">₹1,699</p>
+<div class="btns"><button onclick="addCart(this);event.stopPropagation();">
+Add Cart
+</button><button class="wish"
+onclick="addWish(this);event.stopPropagation();">
+❤
+</button></div>
+</div>
+
+<div class="product">
+<img src="https://images.unsplash.com/photo-1593030761757-71fae45fa0e7?q=80&w=800">
+<h4>Premium Fit</h4>
+<p class="price">
+₹1,999 <span class="old">₹2,799</span> <span class="off">30% OFF</span>
+</p>
+<div class="btns"><button onclick="addCart(this);event.stopPropagation();">
+Add Cart
+</button><button class="wish"
+onclick="addWish(this);event.stopPropagation();">
+❤
+</button></div>
+</div>
+
+</div>
+</section>
+
+<section class="new-launch">
+
+<h2 style="text-align:left;margin-left:30px;">Sweatshirts</h2>
+<div style="width:60px;height:3px;background:#e60023;margin-left:30px;margin-bottom:25px;"></div>
+
+<div class="slider">
+
+<div class="product">
+<img src="https://images.unsplash.com/photo-1618354691438-25bc04584c23?q=80&w=800">
+<h4>Grey Sweatshirt</h4>
+<p class="price">
+₹1,299 <span class="old">₹1,999</span> <span class="off">35% OFF</span>
+</p>
+<div class="btns"><button onclick="addCart(this);event.stopPropagation();">
+Add Cart
+</button><button class="wish"
+onclick="addWish(this);event.stopPropagation();">
+❤
+</button></div>
+</div>
+
+<div class="product">
+<img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?q=80&w=800">
+<h4>Oversized Sweat</h4>
+<p class="price">₹1,099</p>
+<div class="btns"><button onclick="addCart(this);event.stopPropagation();">
+Add Cart
+</button><button class="wish"
+onclick="addWish(this);event.stopPropagation();">
+❤
+</button></div>
+</div>
+
+<div class="product">
+<img src="https://images.unsplash.com/photo-1503341455253-b2e723bb3dbb?q=80&w=800">
+<h4>Black Hoodie</h4>
+<p class="price">
+₹1,499 <span class="old">₹2,199</span> <span class="off">32% OFF</span>
+</p>
+<div class="btns"><button onclick="addCart(this);event.stopPropagation();">
+Add Cart
+</button><button class="wish"
+onclick="addWish(this);event.stopPropagation();">
+❤
+</button></div>
+</div>
+
+<div class="product">
+<img src="https://images.unsplash.com/photo-1562157873-818bc0726f68?q=80&w=800">
+<h4>Street Sweat</h4>
+<p class="price">₹1,399</p>
+<div class="btns"><button onclick="addCart(this);event.stopPropagation();">
+Add Cart
+</button><button class="wish"
+onclick="addWish(this);event.stopPropagation();">
+❤
+</button></div>
+</div>
+
+<div class="product">
+<img src="https://images.unsplash.com/photo-1583743814966-8936f37f4678?q=80&w=800">
+<h4>Winter Sweatshirt</h4>
+<p class="price">
+₹1,699 <span class="old">₹2,499</span> <span class="off">30% OFF</span>
+</p>
+<div class="btns"><button onclick="addCart(this);event.stopPropagation();">
+Add Cart
+</button><button class="wish"
+onclick="addWish(this);event.stopPropagation();">
+❤
+</button></div>
+</div>
+
+</div>
+</section>
+
+<section class="new-launch">
+
+<h2 style="text-align:left;margin-left:30px;">Jackets</h2>
+<div style="width:60px;height:3px;background:#e60023;margin-left:30px;margin-bottom:25px;"></div>
+
+<div class="slider">
+
+<div class="product">
+<img src="https://images.unsplash.com/photo-1520975916090-3105956dac38?q=80&w=800">
+<h4>Winter Jacket</h4>
+<p class="price">
+₹3,499 <span class="old">₹5,999</span> <span class="off">40% OFF</span>
+</p>
+<div class="btns"><button onclick="addCart(this);event.stopPropagation();">
+Add Cart
+</button><button class="wish"
+onclick="addWish(this);event.stopPropagation();">
+❤
+</button></div>
+</div>
+
+<div class="product">
+<img src="https://images.unsplash.com/photo-1490481651871-ab68de25d43d?q=80&w=800">
+<h4>Leather Jacket</h4>
+<p class="price">₹4,999</p>
+<div class="btns"><button onclick="addCart(this);event.stopPropagation();">
+Add Cart
+</button><button class="wish"
+onclick="addWish(this);event.stopPropagation();">
+❤
+</button></div>
+</div>
+
+<div class="product">
+<img src="https://images.unsplash.com/photo-1515378791036-0648a3ef77b2?q=80&w=800">
+<h4>Denim Jacket</h4>
+<p class="price">
+₹2,299 <span class="old">₹3,499</span> <span class="off">34% OFF</span>
+</p>
+<div class="btns"><button onclick="addCart(this);event.stopPropagation();">
+Add Cart
+</button><button class="wish"
+onclick="addWish(this);event.stopPropagation();">
+❤
+</button></div>
+</div>
+
+<div class="product">
+<img src="https://images.unsplash.com/photo-1483985988355-763728e1935b?q=80&w=800">
+<h4>Urban Coat</h4>
+<p class="price">₹3,799</p>
+<div class="btns"><button onclick="addCart(this);event.stopPropagation();">
+Add Cart
+</button><button class="wish"
+onclick="addWish(this);event.stopPropagation();">
+❤
+</button></div>
+</div>
+
+<div class="product">
+<img src="https://images.unsplash.com/photo-1523381210434-271e8be1f52b?q=80&w=800">
+<h4>Puffer Jacket</h4>
+<p class="price">
+₹3,199 <span class="old">₹4,199</span> <span class="off">24% OFF</span>
+</p>
+<div class="btns"><button onclick="addCart(this);event.stopPropagation();">
+Add Cart
+</button><button class="wish"
+onclick="addWish(this);event.stopPropagation();">
+❤
+</button></div>
+</div>
+
+</div>
+</section>
+
+<section class="new-launch">
+
+<h2 style="text-align:left;margin-left:30px;">Joggers</h2>
+<div style="width:60px;height:3px;background:#e60023;margin-left:30px;margin-bottom:25px;"></div>
+
+<div class="slider">
+
+<div class="product">
+<img src="https://images.unsplash.com/photo-1552902865-b72c031ac5ea?q=80&w=800">
+<h4>Black Joggers</h4>
+<p class="price">
+₹1,199 <span class="old">₹1,899</span> <span class="off">35% OFF</span>
+</p>
+<div class="btns"><button onclick="addCart(this);event.stopPropagation();">
+Add Cart
+</button><button class="wish"
+onclick="addWish(this);event.stopPropagation();">
+❤
+</button></div>
+</div>
+
+<div class="product">
+<img src="https://images.unsplash.com/photo-1594633313593-bab3825d0caf?q=80&w=800">
+<h4>Grey Street Jogger</h4>
+<p class="price">₹999</p>
+<div class="btns"><button onclick="addCart(this);event.stopPropagation();">
+Add Cart
+</button><button class="wish"
+onclick="addWish(this);event.stopPropagation();">
+❤
+</button></div>
+</div>
+
+<div class="product">
+<img src="https://images.unsplash.com/photo-1603252109303-2751441dd157?q=80&w=800">
+<h4>Urban Fit Jogger</h4>
+<p class="price">
+₹1,299 <span class="old">₹1,999</span> <span class="off">30% OFF</span>
+</p>
+<div class="btns"><button onclick="addCart(this);event.stopPropagation();">
+Add Cart
+</button><button class="wish"
+onclick="addWish(this);event.stopPropagation();">
+❤
+</button></div>
+</div>
+
+<div class="product">
+<img src="https://images.unsplash.com/photo-1541099649105-f69ad21f3246?q=80&w=800">
+<h4>Sport Jogger</h4>
+<p class="price">₹1,099</p>
+<div class="btns"><button onclick="addCart(this);event.stopPropagation();">
+Add Cart
+</button><button class="wish"
+onclick="addWish(this);event.stopPropagation();">
+❤
+</button></div>
+</div>
+
+<div class="product">
+<img src="https://images.unsplash.com/photo-1520975916090-3105956dac38?q=80&w=800">
+<h4>Premium Jogger</h4>
+<p class="price">
+₹1,499 <span class="old">₹2,299</span> <span class="off">35% OFF</span>
+</p>
+<div class="btns"><button onclick="addCart(this);event.stopPropagation();">
+Add Cart
+</button><button class="wish"
+onclick="addWish(this);event.stopPropagation();">
+❤
+</button></div>
+</div>
+
+</div>
+</section>
+
+<section class="new-launch">
+
+<h2 style="text-align:left;margin-left:30px;">T-Shirts</h2>
+<div style="width:60px;height:3px;background:#e60023;margin-left:30px;margin-bottom:25px;"></div>
+
+<div class="slider">
+
+<div class="product">
+<img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?q=80&w=800">
+<h4>Oversized T-shirt</h4>
+<p class="price">
+₹799 <span class="old">₹1,299</span> <span class="off">38% OFF</span>
+</p>
+<div class="btns"><button onclick="addCart(this);event.stopPropagation();">
+Add Cart
+</button><button class="wish"
+onclick="addWish(this);event.stopPropagation();">
+❤
+</button></div>
+</div>
+
+<div class="product">
+<img src="https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?q=80&w=800">
+<h4>Pink Cotton Tee</h4>
+<p class="price">₹699</p>
+<div class="btns"><button onclick="addCart(this);event.stopPropagation();">
+Add Cart
+</button><button class="wish"
+onclick="addWish(this);event.stopPropagation();">
+❤
+</button></div>
+</div>
+
+<div class="product">
+<img src="https://images.unsplash.com/photo-1583743814966-8936f37f4678?q=80&w=800">
+<h4>Printed T-shirt</h4>
+<p class="price">
+₹899 <span class="old">₹1,399</span> <span class="off">36% OFF</span>
+</p>
+<div class="btns"><button onclick="addCart(this);event.stopPropagation();">
+Add Cart
+</button><button class="wish"
+onclick="addWish(this);event.stopPropagation();">
+❤
+</button></div>
+</div>
+
+<div class="product">
+<img src="https://images.unsplash.com/photo-1562157873-818bc0726f68?q=80&w=800">
+<h4>Streetwear Tee</h4>
+<p class="price">₹749</p>
+<div class="btns"><button onclick="addCart(this);event.stopPropagation();">
+Add Cart
+</button><button class="wish"
+onclick="addWish(this);event.stopPropagation();">
+❤
+</button></div>
+</div>
+
+<div class="product">
+<img src="https://images.unsplash.com/photo-1618354691438-25bc04584c23?q=80&w=800">
+<h4>Classic White Tee</h4>
+<p class="price">
+₹599 <span class="old">₹999</span> <span class="off">40% OFF</span>
+</p>
+<div class="btns"><button onclick="addCart(this);event.stopPropagation();">
+Add Cart
+</button><button class="wish"
+onclick="addWish(this);event.stopPropagation();">
+❤
+</button></div>
+</div>
+
+</div>
+</section>
+
+<!-- PROMO STRIP -->
+<section class="luxury-strip">
+  <div class="luxury-track">
+    <span>20% OFF ON WEEKENDS</span>
+    <span>•</span>
+    <span>SALE IS LIVE NOW</span>
+    <span>•</span>
+    <span>FREE SHIPPING ABOVE ₹499</span>
+    <span>•</span>
+    <span>COD AVAILABLE</span>
+  </div>
+</section>
+
+<!-- FEATURES STRIP -->
+<div class="features">
+
+<div class="feature-box">
+<div class="icon">🚚</div>
+<h4>Free Shipping</h4>
+<p>Free shipping on orders above ₹499</p>
+</div>
+
+<div class="feature-box">
+<div class="icon">💰</div>
+<h4>Cash On Delivery</h4>
+<p>Pay at your doorstep</p>
+</div>
+
+<div class="feature-box">
+<div class="icon">🎁</div>
+<h4>Gift For All</h4>
+<p>Special gifts on premium orders</p>
+</div>
+
+<div class="feature-box">
+<div class="icon">⏰</div>
+<h4>Open All Week</h4>
+<p>10:00 AM - 9:00 PM</p>
+</div>
+</div>
+
+<!-- VIDEO SECTION WORKING -->
+<div class="latest-section">
+<h2 class="latest-title">New Latest</h2>
+<div class="title-line"></div>
+
+<div class="latest-grid">
+
+<!-- LEFT CARD -->
+<div class="latest-card">
+<img src="https://images.unsplash.com/photo-1515378791036-0648a3ef77b2?q=80&w=800">
+<div class="blog-overlay">
+<h3>Luxury <span class="red-text">Evening</span></h3>
+<p>Discover bold looks that redefine elegance.</p>
+</div>
+</div>
+
+<!-- CENTER CARD (MAIN BLOG STYLE) -->
+<div class="latest-card center-card">
+<img src="https://images.unsplash.com/photo-1490481651871-ab68de25d43d?q=80&w=800">
+<div class="blog-overlay dark">
+<h3>New Trend <span class="red-text">2026</span></h3>
+<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+Non possimus autem provident.</p>
+<button class="read-btn">READ MORE</button>
+</div>
+</div>
+
+<!-- RIGHT CARD -->
+<div class="latest-card">
+<img src="https://images.unsplash.com/photo-1483985988355-763728e1935b?q=80&w=800">
+<div class="blog-overlay">
+<h3>Urban <span class="red-text">Chic</span></h3>
+<p>Modern styling for confident women.</p>
+</div>
+
+</div>
+</div>   
+</div>   
+
+
+<!-- NEWSLETTER BAR -->
+<div class="newsletter">
+  <div class="newsletter-inner">
+
+    <div class="newsletter-text">
+      Sign up for Send Newsletter
+    </div>
+
+    <div class="newsletter-form">
+      <input type="email" placeholder="Your Email">
+      <button>SUBSCRIBE</button>
+    </div>
+
+    <div class="newsletter-social">
+      <span>f</span>
+      <span>X</span>
+      <span>G</span>
+      <span>in</span>
+    </div>
+
+  </div>
+</div>
+<!-- FOOTER -->
+<footer class="main-footer">
+
+<div class="footer-grid">
+
+<div>
+<h3>About</h3>
+<p>About Us</p>
+<p>Online Store</p>
+<p>Blog</p>
+<p>Contact Us</p>
+</div>
+
+<div>
+<h3>Account</h3>
+<p>Login / Register</p>
+<p>Your Cart</p>
+<p>Wishlist</p>
+<p>Checkout</p>
+</div>
+
+<div>
+<h3>Help</h3>
+<p>FAQs</p>
+<p>Term Of Service</p>
+<p>Privacy Policy</p>
+<p>Returns</p>
+</div>
+
+<div>
+<h2 class="brand">URBAN<span>STYLE</span></h2>
+<p>INDIA, ASSAM, Guwahati, near ganeshguri resturant</p>
+<p>+91 60008 49212</p>
+<p>urbanstyle@gmail.com</p>
+</div>
+
+</div>
+
+<div class="copyright">
+© 2026 UrbanStyle. All rights reserved.
+</div>
+
+</footer>
+
+<script>
+
+ let cancelOrderIndex = -1;
+
+/* HERO IMAGE AUTO SLIDER */
+
+const slides=[
+
+{
+img:"https://images.unsplash.com/photo-1490481651871-ab68de25d43d?q=80&w=1600",
+color:"#ffffff"
+},
+
+{
+img:"https://images.unsplash.com/photo-1523381210434-271e8be1f52b?q=80&w=1600",
+color:"#ffffff"
+},
+
+{
+img:"https://images.unsplash.com/photo-1483985988355-763728e1935b?q=80&w=1600",
+color:"#ffffff"
+}
+
+];
+
+let index=0;
+const hero=document.getElementById("hero");
+
+function changeImage(){
+
+hero.style.opacity=0.4;
+
+setTimeout(()=>{
+hero.style.backgroundImage="url("+slides[index].img+")";
+
+/* change text color */
+document.querySelector(".hero-text").style.color=slides[index].color;
+
+hero.style.opacity=1;
+index=(index+1)%slides.length;
+
+},400);
+}
+
+changeImage();
+setInterval(changeImage,5000);
+
+/* SEARCH TEXT CHANGER */
+const words=[
+"Shoes",
+"Joggers",
+"Jeans",
+"Hoodies",
+"Sweatshirts",
+"Jackets",
+"Sneakers",
+"Streetwear",
+"Oversized T-shirts"
+];
+
+let i=0;
+setInterval(()=>{
+document.getElementById("searchInput").placeholder="Search '"+words[i]+"'";
+i=(i+1)%words.length;
+},1500);
+
+let wishNumber = 0;
+let wishlist = [];
+
+function addWish(btn){
+
+const product = btn.closest(".product");
+
+const name = product.querySelector("h4").innerText;
+
+const img = product.querySelector("img").src;
+
+const price = product.querySelector(".price").childNodes[0].textContent.trim();
+
+/* CHECK DUPLICATE */
+const exists = wishlist.some(item => item.title === name);
+
+if(exists){
+alert("Already in wishlist ❤");
+return;
+}
+
+wishlist.push({
+title:name,
+img:img,
+price:price
+});
+
+wishNumber++;
+
+document.querySelector(".wish-count").innerText = wishNumber;
+
+}
+
+// ❤️ HEART CLICK POP EFFECT
+document.addEventListener("click",function(e){
+if(e.target.classList.contains("wish")){
+e.target.classList.toggle("active");
+
+setTimeout(()=>{
+e.target.classList.remove("active");
+},300);
+}
+});
+
+/* NAV ACTIVE SWITCH */
+const navItems = document.querySelectorAll(".nav-item");
+
+navItems.forEach(item=>{
+item.addEventListener("click",()=>{
+navItems.forEach(i=>i.classList.remove("active"));
+item.classList.add("active");
+});
+});
+
+function closeCart(){
+document.getElementById("cartPage").style.display = "none";
+}
+function openWishlist(){
+
+document.getElementById("wishlistPage").style.display = "block";
+
+let wishHTML = "";
+
+wishlist.forEach((item,index)=>{
+
+wishHTML += `
+
+<div style="
+background:white;
+margin-bottom:18px;
+padding:18px;
+border-radius:12px;
+box-shadow:0 2px 10px rgba(0,0,0,0.08);
+display:flex;
+gap:18px;
+align-items:center;
+">
+<img src="${item.img}"
+style="
+width:140px;
+height:140px;
+object-fit:cover;
+border-radius:10px;
+background:#f5f5f5;
+">
+
+<div style="flex:1;">
+
+<h2 style="
+margin:0;
+font-size:24px;
+font-weight:600;
+">
+${item.title}
+</h2>
+
+<p style="
+color:#777;
+margin-top:6px;
+font-size:15px;
+">
+Saved in your wishlist ❤
+</p>
+
+</div>
+
+<button onclick="removeWish(${index})" style="
+background:#e60023;
+color:white;
+border:none;
+padding:12px 18px;
+border-radius:8px;
+cursor:pointer;
+font-weight:600;
+">
+Remove
+</button>
+
+</div>
+
+`;
+
+});
+
+document.getElementById("wishlistItems").innerHTML = wishHTML;
+
+}
+
+function closeWishlist(){
+document.getElementById("wishlistPage").style.display = "none";
+}
+
+function removeWish(index){
+
+wishlist.splice(index,1);
+
+wishNumber--;
+
+document.querySelector(".wish-count").innerText = wishNumber;
+
+openWishlist();
+
+}
+
+let currentProduct = "";
+let qty = 1;
+
+function openProduct(title, price, img){
+currentProduct = title;
+
+document.getElementById("productPage").style.display = "block";
+document.getElementById("ppTitle").innerText = title;
+document.getElementById("ppPrice").innerText = price;
+document.getElementById("ppImg").src = img;
+
+qty = 1;
+document.getElementById("qtyNum").innerText = qty;
+}
+
+function closeProduct(){
+document.getElementById("productPage").style.display = "none";
+}
+
+/* size select */
+function selectSize(el){
+document.querySelectorAll(".size").forEach(s=>s.classList.remove("active"));
+el.classList.add("active");
+}
+
+/* quantity */
+function changeQty(num){
+qty += num;
+if(qty < 1) qty = 1;
+document.getElementById("qtyNum").innerText = qty;
+}
+
+function openMenu(){
+document.getElementById("sidebar").classList.add("active");
+document.getElementById("overlay").classList.add("active");
+}
+
+function closeMenu(){
+document.getElementById("sidebar").classList.remove("active");
+document.getElementById("overlay").classList.remove("active");
+}
+
+let cartItems = [];
+let orders = [];
+
+async function openOrders(){
+
+document.getElementById("ordersPage").style.display="block";
+
+const res = await fetch("http://localhost:5000/orders");
+
+orders = await res.json();
+
+renderOrders();
+
+}
+
+function closeOrders(){
+
+document.getElementById("ordersPage").style.display="none";
+
+}
+
+function renderOrders(){
+
+let container =
+document.getElementById("ordersContainer");
+
+if(orders.length===0){
+
+container.innerHTML=`
+
+<div style="
+text-align:center;
+padding:60px 20px;
+">
+
+<h2>No Orders Yet</h2>
+
+<p>
+Your placed orders will appear here
+</p>
+
+</div>
+
+`;
+
+return;
+
+}
+
+container.innerHTML="";
+
+orders.forEach((order,index)=>{
+
+container.innerHTML += `
+
+<div
+onclick="openOrderDetails(${index})"
+style="
+background:white;
+padding:15px;
+border-radius:15px;
+margin-bottom:15px;
+display:flex;
+align-items:center;
+gap:15px;
+box-shadow:0 2px 10px rgba(0,0,0,.08);
+cursor:pointer;
+">
+
+<img src="${order.image}"
+style="
+width:80px;
+height:80px;
+object-fit:cover;
+border-radius:10px;
+">
+
+<div style="flex:1;">
+
+<h3 style="margin:0;">
+${order.productName}
+</h3>
+
+<div style="
+display:inline-flex;
+align-items:center;
+padding:8px 14px;
+border-radius:999px;
+font-weight:600;
+font-size:14px;
+margin-top:8px;
+background:${
+order.status=="Cancelled"
+? "#ffe5e5"
+: "#e8fff0"
+};
+color:${
+order.status=="Cancelled"
+? "#d32f2f"
+: "#00a650"
+};
+">
+
+${order.status=="Cancelled" ? "❌" : "✅"}
+
+&nbsp;
+
+<p style="
+display:inline-block;
+padding:6px 12px;
+border-radius:20px;
+font-weight:bold;
+background:${
+order.status=="Cancelled"
+? "#ffe5e5"
+: "#e8fff0"
+};
+color:${
+order.status=="Cancelled"
+? "#d32f2f"
+: "#00a650"
+};
+">
+${order.status}
+</p>
+
+</div>
+
+<p>
+Order ID: ${order.orderId}
+</p>
+
+</div>
+
+</div>
+
+`;
+
+});
+
+}
+
+function openOrderDetails(index){
+
+let order = orders[index];
+console.log(order);
+console.log("customerName =", order.customerName);
+console.log("customername =", order.customername);
+let confirmed = "#00a650";
+let packed = "#ddd";
+let delivered = "#ddd";
+
+if(order.status=="Packed" || order.status=="Shipped"){
+packed="#00a650";
+}
+
+if(order.status=="Delivered"){
+packed="#00a650";
+delivered="#00a650";
+}
+
+document.getElementById(
+"orderDetailsPage"
+).style.display = "block";
+
+document.getElementById(
+"orderDetailsContent"
+).innerHTML = `
+
+<div style="
+background:white;
+padding:20px;
+border-radius:18px;
+box-shadow:0 2px 10px rgba(0,0,0,.08);
+margin-bottom:15px;
+">
+
+<div style="
+display:flex;
+justify-content:space-between;
+align-items:center;
+">
+
+<div>
+
+<div style="
+font-size:22px;
+font-weight:bold;
+">
+${order.status=="Cancelled"
+? "Order Cancelled"
+: order.status=="Delivered"
+? "Order Delivered"
+: order.status=="Shipped"
+? "Order Shipped"
+: order.status=="Packed"
+? "Order Packed"
+: "Order Confirmed"}
+</div>
+
+<div style="color:#666;">
+Order ID: ${order.orderId}
+<div style="
+margin-top:15px;
+padding:15px;
+background:#f5fff7;
+border-radius:12px;
+">
+
+<div style="
+font-weight:bold;
+color:#00a650;
+font-size:18px;
+">
+🚚 Expected Delivery
+</div>
+
+<div style="
+margin-top:8px;
+font-size:20px;
+font-weight:bold;
+">
+${order.deliveryDate}
+</div>
+
+<div style="
+margin-top:5px;
+color:#666;
+">
+Estimated delivery in 3-5 days
+</div>
+
+</div>
+</div>
+
+</div>
+
+<div style="
+background:${order.status=="Cancelled" ? "#ffe5e5" : "#e8fff0"};
+padding:8px 15px;
+border-radius:20px;
+font-weight:bold;
+color:${order.status=="Cancelled" ? "#d32f2f" : "#00a650"};
+">
+${order.status}
+
+</div>
+
+</div>
+
+</div>
+
+${order.status=="Cancelled" ? `
+
+<div style="
+margin-top:15px;
+padding:15px;
+background:#fff1f1;
+border-left:4px solid #e60023;
+border-radius:10px;
+">
+
+<div style="
+font-weight:bold;
+color:#e60023;
+">
+Cancellation Details
+</div>
+
+<div style="margin-top:8px;">
+Reason: ${order.cancelReason}
+</div>
+
+<div style="margin-top:5px;">
+Date: ${order.cancelDate}
+</div>
+
+</div>
+
+` : ''}
+
+${order.status=="Cancelled" ? `
+
+<div style="
+margin-top:15px;
+padding:18px;
+background:#f5fff7;
+border-left:4px solid #00a650;
+border-radius:10px;
+">
+
+<div style="
+font-weight:bold;
+color:#00a650;
+font-size:18px;
+">
+Refund Status
+</div>
+
+<div style="
+margin-top:10px;
+font-weight:600;
+">
+✅ Refund Initiated
+</div>
+
+<div style="
+margin-top:8px;
+color:#666;
+">
+Amount: ${order.price}
+</div>
+
+<div style="
+margin-top:5px;
+color:#666;
+">
+Expected within 3-5 business days
+</div>
+
+</div>
+
+` : ''}
+
+<div style="
+background:white;
+padding:20px;
+border-radius:18px;
+box-shadow:0 2px 10px rgba(0,0,0,.08);
+margin-bottom:15px;
+">
+
+<h3 style="margin-top:0;">Order Journey</h3>
+
+<div style="
+display:flex;
+justify-content:space-between;
+align-items:center;
+margin-top:25px;
+">
+
+<div style="text-align:center;flex:1;">
+<div style="
+width:35px;
+height:35px;
+border-radius:50%;
+background:#00a650;
+color:white;
+display:flex;
+align-items:center;
+justify-content:center;
+margin:auto;
+">
+✓
+</div>
+
+<p style="font-size:13px;">
+Confirmed
+</p>
+</div>
+
+<div style="
+height:3px;
+background:#00a650;
+flex:1;
+margin-bottom:25px;
+"></div>
+
+<div style="text-align:center;flex:1;">
+<div style="
+width:35px;
+height:35px;
+border-radius:50%;
+background:${packed};
+color:white;
+display:flex;
+align-items:center;
+justify-content:center;
+margin:auto;
+">
+${packed=="#00a650" ? "✓" : ""}
+</div>
+
+<p style="font-size:13px;">
+Packed
+</p>
+</div>
+
+<div style="
+height:3px;
+background:${packed};
+flex:1;
+margin-bottom:25px;
+"></div>
+
+<div style="text-align:center;flex:1;">
+<div style="
+width:35px;
+height:35px;
+border-radius:50%;
+background:${delivered};
+color:white;
+display:flex;
+align-items:center;
+justify-content:center;
+margin:auto;
+">
+${delivered=="#00a650" ? "✓" : ""}
+</div>
+
+<p style="font-size:13px;">
+Delivered
+</p>
+</div>
+
+</div>
+
+<div style="
+margin-top:20px;
+background:#f7f7f7;
+padding:15px;
+border-radius:12px;
+color:#666;
+">
+${order.status=="Delivered"
+? "✅ Delivered successfully"
+: order.status=="Shipped"
+? "🚚 Out for delivery"
+: order.status=="Packed"
+? "📦 Packed and ready to ship"
+: "📦 Waiting for dispatch"}
+</div>
+
+</div>
+
+<div style="
+background:white;
+padding:20px;
+border-radius:18px;
+box-shadow:0 2px 10px rgba(0,0,0,.08);
+margin-bottom:15px;
+display:flex;
+gap:15px;
+">
+
+<img src="${order.image}"
+style="
+width:100px;
+height:100px;
+object-fit:cover;
+border-radius:12px;
+">
+
+<div>
+
+<h3 style="margin:0;">
+${order.productName}
+</h3>
+
+<p>${order.price}</p>
+
+<p>Size: ${order.size}</p>
+
+</div>
+
+</div>
+
+<div style="
+background:white;
+padding:20px;
+border-radius:18px;
+box-shadow:0 2px 10px rgba(0,0,0,.08);
+margin-bottom:15px;
+">
+
+<h3>Delivery Address</h3>
+
+<p>
+${order.customerName}<br>
+${order.address}<br>
+${order.city}<br>
+📞 ${order.phone}
+</p>
+
+</div>
+
+<div style="
+background:white;
+padding:20px;
+border-radius:18px;
+box-shadow:0 2px 10px rgba(0,0,0,.08);
+margin-bottom:15px;
+">
+
+<h3>Payment Details</h3>
+
+<p>${order.payment}</p>
+
+</div>
+
+<button
+onclick="openHelp(${index})"
+style="
+width:100%;
+padding:16px;
+background:#111;
+color:white;
+border:none;
+border-radius:12px;
+font-weight:bold;
+margin-bottom:10px;
+">
+Need Help
+</button>
+
+${order.status!="Cancelled" && order.status!="Delivered" ? `
+
+<button
+onclick="cancelOrder(${index})"
+style="
+width:100%;
+padding:16px;
+background:#e60023;
+color:white;
+border:none;
+border-radius:12px;
+font-weight:bold;
+">
+Cancel Order
+</button>
+
+` : ''}
+
+`;
+
+}
+
+function closeOrderDetails(){
+
+document.getElementById(
+"orderDetailsPage"
+).style.display = "none";
+
+}
+
+function increaseQty(index){
+
+cartItems[index].qty++;
+
+cartNumber++;
+
+document.querySelectorAll(".cart-count").forEach(el=>{
+el.innerText = cartNumber;
+});
+
+openCart();
+
+}
+
+function cancelOrder(index){
+
+cancelOrderIndex = index;
+
+document.getElementById(
+"cancelPopup"
+).style.bottom = "0";
+
+}
+
+function closeCancelPopup(){
+
+document.getElementById(
+"cancelPopup"
+).style.bottom = "-100%";
+
+}
+
+function confirmCancelOrder(){
+
+closeCancelPopup();
+
+let order =
+orders[cancelOrderIndex];
+
+document.getElementById(
+"cancelReasonPage"
+).style.display = "block";
+
+document.getElementById(
+"cancelProductBox"
+).innerHTML = `
+
+<div style="
+background:white;
+padding:15px;
+border-radius:15px;
+display:flex;
+gap:15px;
+align-items:center;
+box-shadow:0 2px 10px rgba(0,0,0,.08);
+">
+
+<img src="${order.image}"
+style="
+width:90px;
+height:90px;
+object-fit:cover;
+border-radius:10px;
+">
+
+<div>
+
+<h3 style="margin:0;">
+${order.title}
+</h3>
+
+<p>
+${order.price}
+</p>
+
+</div>
+
+</div>
+
+`;
+
+}
+
+function closeCancelReason(){
+
+document.getElementById(
+"cancelReasonPage"
+).style.display = "none";
+
+}
+
+function decreaseQty(index){
+
+if(cartItems[index].qty > 1){
+
+cartItems[index].qty--;
+
+cartNumber--;
+
+document.querySelectorAll(".cart-count").forEach(el=>{
+el.innerText = cartNumber;
+});
+
+}
+
+openCart();
+
+}
+
+function submitCancellation(){
+
+let reason =
+document.querySelector(
+'input[name="cancelReason"]:checked'
+);
+
+if(!reason){
+
+alert("Please select a reason");
+
+return;
+
+}
+
+orders[cancelOrderIndex].status =
+"Cancelled";
+
+orders[cancelOrderIndex].cancelReason =
+reason.value;
+
+orders[cancelOrderIndex].cancelDate =
+new Date().toLocaleDateString();
+
+fetch(
+`http://localhost:5000/update-order/${orders[cancelOrderIndex]._id}`,
+{
+method:"PUT",
+headers:{
+"Content-Type":"application/json"
+},
+body:JSON.stringify({
+status:"Cancelled",
+cancelReason:reason.value,
+cancelDate:new Date().toLocaleDateString()
+})
+}
+);
+
+console.log({
+    status:"Cancelled",
+    cancelReason:reason.value,
+    cancelDate:new Date().toLocaleDateString()
+});
+
+localStorage.setItem(
+"orders",
+JSON.stringify(orders)
+);
+
+document.getElementById(
+"cancelReasonPage"
+).style.display = "none";
+
+document.getElementById(
+"cancelSuccessPage"
+).style.display = "block";
+
+renderOrders();
+
+}
+
+function goHomeAfterCancel(){
+
+document.getElementById(
+"cancelSuccessPage"
+).style.display = "none";
+
+document.querySelectorAll(".product-page")
+.forEach(page=>{
+page.style.display = "none";
+});
+
+window.scrollTo(0,0);
+
+}
+
+function goOrdersAfterCancel(){
+
+document.getElementById(
+"cancelSuccessPage"
+).style.display = "none";
+
+document.getElementById(
+"orderDetailsPage"
+).style.display = "none";
+
+document.getElementById(
+"cancelReasonPage"
+).style.display = "none";
+
+openOrders();
+
+}
+
+function saveForLater(index){
+
+wishlist.push({
+title:cartItems[index].title,
+img:cartItems[index].img,
+price:cartItems[index].price
+});
+
+wishNumber++;
+
+document.querySelector(".wish-count").innerText = wishNumber;
+
+cartNumber -= cartItems[index].qty;
+cartItems.splice(index,1);
+
+document.querySelectorAll(".cart-count").forEach(el=>{
+el.innerText = cartNumber;
+});
+
+openCart();
+
+alert("Moved to wishlist ❤");
+
+}
+
+function removeItem(index){
+
+cartNumber -= cartItems[index].qty;
+
+cartItems.splice(index,1);
+
+document.querySelectorAll(".cart-count").forEach(el=>{
+el.innerText = cartNumber;
+});
+
+openCart();
+
+} 
+
+let cartNumber = 0;
+
+function addCart(btn){
+
+let product;
+let name;
+let price;
+let img;
+
+/* FROM PRODUCT CARD */
+if(btn.closest(".product")){
+
+product = btn.closest(".product");
+
+name = product.querySelector("h4").innerText;
+
+price = product.querySelector(".price").childNodes[0].textContent.trim();
+
+img = product.querySelector("img").src;
+
+}
+
+/* FROM PRODUCT PAGE */
+else{
+
+name = document.getElementById("ppTitle").innerText;
+
+price = document.getElementById("ppPrice").innerText;
+
+img = document.getElementById("ppImg").src;
+
+}
+
+cartItems.push({
+title:name,
+price:price,
+img:img,
+qty:qty
+});
+
+cartNumber += qty;
+
+document.querySelectorAll(".cart-count").forEach(el=>{
+el.innerText = cartNumber;
+});
+
+alert(name + " added to cart 🛒");
+}
+
+function openCart(){
+
+document.getElementById("cartPage").style.display = "block";
+
+let cartHTML = "";
+
+let total = 0;
+
+cartItems.forEach((item, index) => {
+
+let priceNumber = parseInt(item.price.replace(/[^\d]/g,''));
+
+total += priceNumber * item.qty;
+
+cartHTML += `
+
+<div style="
+background:white;
+margin-bottom:18px;
+padding:18px;
+border-radius:12px;
+box-shadow:0 2px 10px rgba(0,0,0,0.08);
+display:flex;
+gap:18px;
+align-items:flex-start;
+">
+
+<img src="${item.img}"
+style="
+width:140px;
+height:140px;
+object-fit:cover;
+border-radius:10px;
+background:#f5f5f5;
+">
+
+<div style="flex:1;">
+
+<h2 style="
+margin:0;
+font-size:24px;
+font-weight:600;
+">
+${item.title}
+</h2>
+
+<p style="
+color:#777;
+margin-top:6px;
+font-size:15px;
+">
+Premium Product • UrbanStyle
+</p>
+
+<div style="
+margin-top:10px;
+display:flex;
+align-items:center;
+gap:10px;
+">
+
+<span style="
+font-size:28px;
+font-weight:bold;
+color:#111;
+">
+${item.price}
+</span>
+
+<span style="
+text-decoration:line-through;
+color:#888;
+font-size:18px;
+">
+₹3999
+</span>
+
+<span style="
+color:green;
+font-weight:bold;
+font-size:18px;
+">
+50% off
+</span>
+
+</div>
+
+<div style="
+margin-top:18px;
+display:flex;
+align-items:center;
+gap:10px;
+">
+
+<button onclick="decreaseQty(${index})" style="
+width:35px;
+height:35px;
+border-radius:50%;
+border:none;
+background:white;
+color:black;
+border:2px solid #ddd;
+display:flex;
+align-items:center;
+justify-content:center;
+padding:0;
+transition:0.3s;
+font-size:20px;
+cursor:pointer;
+box-shadow:0 4px 10px rgba(0,0,0,0.15);
+"
+onmouseover="this.style.background='#f5f5f5';this.style.transform='scale(1.1)'"
+onmouseout="this.style.background='#ffffff';this.style.transform='scale(1)'"
+>
+−
+</button>
+
+<span style="
+font-size:18px;
+font-weight:bold;
+color:#111;
+">
+${item.qty}
+</span>
+
+<button onclick="increaseQty(${index})" style="
+width:35px;
+height:35px;
+border-radius:50%;
+border:none;
+background:white;
+color:black;
+border:2px solid #ddd;
+display:flex;
+align-items:center;
+justify-content:center;
+padding:0;
+transition:0.3s;
+font-size:20px;
+cursor:pointer;
+box-shadow:0 4px 10px rgba(0,0,0,0.15);
+"
+onmouseover="this.style.background='#f5f5f5';this.style.transform='scale(1.1)'"
+onmouseout="this.style.background='#ffffff';this.style.transform='scale(1)'"
+>
++
+</button>
+
+</div>
+
+<div style="
+margin-top:18px;
+display:flex;
+gap:30px;
+font-weight:600;
+font-size:16px;
+">
+
+<span onclick="removeItem(${index})" style="cursor:pointer;color:#111;">
+🗑 Remove
+</span>
+
+<span onclick="saveForLater(${index})" style="cursor:pointer;color:#111;">
+❤ Save for later
+</span>
+
+</div>
+
+</div>
+
+</div>
+
+`;
+
+});
+
+cartHTML += `
+
+<div style="
+position:fixed;
+bottom:0;
+left:0;
+width:100%;
+background:white;
+padding:18px 25px;
+display:flex;
+justify-content:space-between;
+align-items:center;
+box-shadow:0 -4px 15px rgba(0,0,0,0.15);
+z-index:999;
+">
+
+<div>
+
+<div style="
+font-size:14px;
+color:#111;
+">
+Total Amount
+</div>
+
+<div style="
+font-size:32px;
+font-weight:bold;
+color:#111;
+">
+₹${total}
+</div>
+
+</div>
+
+<button style="
+background:#fb641b;
+color:white;
+border:none;
+padding:18px 45px;
+font-size:18px;
+font-weight:bold;
+border-radius:10px;
+cursor:pointer;
+margin-right:40px;
+"
+onclick="openCheckout()">
+Place Order
+</button>
+
+</div>
+
+`;
+
+document.getElementById("cartItems").innerHTML = cartHTML;
+
+}
+
+function openLogin(){
+document.getElementById("loginPopup").style.display = "flex";
+}
+
+function closeLogin(){
+document.getElementById("loginPopup").style.display = "none";
+}
+
+function showEmailLogin(){
+
+document.getElementById("phoneLogin").style.display = "none";
+
+document.getElementById("emailLogin").style.display = "block";
+
+}
+
+function showPhoneLogin(){
+
+document.getElementById("emailLogin").style.display = "none";
+
+document.getElementById("phoneLogin").style.display = "block";
+
+}
+
+document.querySelectorAll(".product").forEach(product => {
+
+product.addEventListener("click", function(e){
+
+if(e.target.closest(".btns")) return;
+
+const title = product.querySelector("h4").innerText;
+
+const price = product.querySelector(".price").childNodes[0].textContent.trim();
+
+const img = product.querySelector("img").src;
+
+openProduct(title, price, img);
+
+});
+
+});
+
+function openProfile(){
+document.getElementById("profilePage").style.display = "block";
+}
+
+function closeProfile(){
+document.getElementById("profilePage").style.display = "none";
+}
+
+function sendOTP(){
+
+const phone = document.querySelector('.phone-box input').value;
+
+if(!phone){
+alert("Enter Phone Number");
+return;
+}
+
+const otp = prompt("Demo OTP is 123456\n\nEnter OTP");
+
+if(otp !== "123456"){
+alert("Invalid OTP");
+return;
+}
+
+const name = prompt("Enter Your Name");
+
+if(!name){
+return;
+}
+
+localStorage.setItem("username", name);
+document.getElementById("loginBtn").innerText =
+"Logout";
+
+document.querySelector(".profile-box h4").innerText =
+"Hello, " + name;
+
+document.getElementById("profileName").innerText =
+"Hello, " + name;
+
+alert("Login Successful ✅");
+
+closeLogin();
+
+}
+
+const savedName = localStorage.getItem("username");
+
+if(savedName){
+
+document.querySelector(".profile-box h4").innerText =
+"Hello, " + savedName;
+
+document.getElementById("profileName").innerText =
+"Hello, " + savedName;
+
+document.getElementById("loginBtn").innerText =
+"Logout";
+
+}
+
+function handleLogin(){
+
+const savedName = localStorage.getItem("username");
+
+if(savedName){
+
+localStorage.removeItem("username");
+
+document.querySelector(".profile-box h4").innerText =
+"Hello, Guest";
+
+document.getElementById("profileName").innerText =
+"Hello, Guest";
+
+document.getElementById("loginBtn").innerText =
+"Login";
+
+alert("Logged Out ✅");
+
+}
+else{
+
+openLogin();
+
+}
+
+}
+
+function openCheckout(){
+document.getElementById("checkoutPage").style.display="block";
+}
+
+function closeCheckout(){
+document.getElementById("checkoutPage").style.display="none";
+}
+
+function placeOrderFinal(){
+
+let name=document.getElementById("custName").value;
+let phone=document.getElementById("custPhone").value;
+let address=document.getElementById("custAddress").value;
+
+if(!name || !phone || !address){
+alert("Please fill all details");
+return;
+}
+
+alert("Order Placed Successfully ✅");
+
+closeCheckout();
+}
+
+let selectedSize = "";
+
+let customerAddress =
+JSON.parse(
+localStorage.getItem("savedAddress")
+) || {};
+
+function openSizePopup(){
+
+selectedSize = "";
+
+document.querySelectorAll(".size-option")
+.forEach(btn => btn.classList.remove("active"));
+
+const continueBtn =
+document.getElementById("sizeContinueBtn");
+
+continueBtn.disabled = true;
+continueBtn.style.background = "#ddd";
+continueBtn.style.color = "black";
+
+document.getElementById("sizePopup").style.bottom = "0";
+
+}
+
+function closeSizePopup(){
+document.getElementById("sizePopup").style.bottom = "-100%";
+}
+
+function chooseSize(btn,size){
+
+document.querySelectorAll(".size-option")
+.forEach(b=>b.classList.remove("active"));
+
+btn.classList.add("active");
+
+selectedSize = size;
+
+const continueBtn =
+document.getElementById("sizeContinueBtn");
+
+continueBtn.disabled = false;
+continueBtn.style.background = "#e60023";
+continueBtn.style.color = "white";
+
+}
+
+function goToAddress(){
+
+if(selectedSize==""){
+alert("Please select size");
+return;
+}
+
+closeSizePopup();
+
+const saved = localStorage.getItem("savedAddress");
+
+if(saved){
+
+customerAddress = JSON.parse(saved);
+
+openOrderSummary();
+
+}else{
+
+document.getElementById("addressPage").style.display = "block";
+
+}
+
+}
+
+function saveAddress(){
+
+let name = document.getElementById("fullName").value;
+let phone = document.getElementById("mobileNumber").value;
+let city = document.getElementById("city").value;
+let address = document.getElementById("fullAddress").value;
+
+if(!name || !phone || !city || !address){
+alert("Please fill all fields");
+return;
+}
+
+customerAddress = {
+name:name,
+phone:phone,
+city:city,
+address:address
+};
+
+localStorage.setItem(
+"savedAddress",
+JSON.stringify(customerAddress)
+);
+
+orders.forEach(order=>{
+
+order.address = {
+...customerAddress
+};
+
+});
+
+localStorage.setItem(
+"orders",
+JSON.stringify(orders)
+);
+
+document.getElementById("addressPage").style.display = "none";
+
+setTimeout(()=>{
+openOrderSummary();
+},100);
+
+}
+
+function openOrderSummary(){
+
+document.getElementById("productPage").style.display = "none";
+document.getElementById("addressPage").style.display = "none";
+
+document.getElementById("orderSummaryPage").style.display = "block";
+
+document.getElementById("summaryTitle").innerText =
+document.getElementById("ppTitle").innerText;
+
+document.getElementById("summaryPrice").innerText =
+document.getElementById("ppPrice").innerText;
+
+document.getElementById("summaryImg").src =
+document.getElementById("ppImg").src;
+
+document.getElementById("summarySize").innerText =
+"Size: " + selectedSize;
+
+document.getElementById("summaryAddress").innerHTML = `
+<div style="
+background:#f8f8f8;
+padding:15px;
+border-radius:12px;
+line-height:1.8;
+">
+
+<div style="
+font-size:20px;
+font-weight:bold;
+color:#111;
+">
+${customerAddress.name}
+</div>
+
+<div style="color:#555;">
+${customerAddress.address}
+</div>
+
+<div style="color:#555;">
+${customerAddress.city}
+</div>
+
+<div style="
+color:#e60023;
+font-weight:600;
+">
+📞 ${customerAddress.phone}
+</div>
+
+</div>
+`;
+
+}
+
+function closeOrderSummary(){
+document.getElementById("orderSummaryPage").style.display = "none";
+document.getElementById("productPage").style.display = "block";
+}
+
+
+function changeAddress(){
+
+document.getElementById("orderSummaryPage").style.display="none";
+
+document.getElementById("addressPage").style.display="block";
+
+document.getElementById("fullName").value =
+customerAddress.name || "";
+
+document.getElementById("mobileNumber").value =
+customerAddress.phone || "";
+
+document.getElementById("city").value =
+customerAddress.city || "";
+
+document.getElementById("fullAddress").value =
+customerAddress.address || "";
+
+}
+
+
+function openPaymentPage(){
+
+document.getElementById("orderSummaryPage").style.display="none";
+
+document.getElementById("paymentPage").style.display="block";
+
+}
+
+function closePaymentPage(){
+
+document.getElementById("paymentPage").style.display="none";
+
+document.getElementById("orderSummaryPage").style.display="block";
+
+}
+
+function placeFinalOrder(){
+
+let payment =
+document.querySelector(
+'input[name="payment"]:checked'
+).value;
+
+document.getElementById("paymentPage").style.display = "none";
+
+document.getElementById("successPage").style.display = "block";
+
+document.getElementById("successPayment").innerText =
+"Payment Method: " + payment;
+
+let orderNumber =
+"ORD" + Math.floor(Math.random()*100000);
+
+document.getElementById("orderId").innerText =
+orderNumber;
+let newOrder = {
+
+id: orderNumber,
+
+title:
+document.getElementById("summaryTitle").innerText,
+
+price:
+document.getElementById("summaryPrice").innerText,
+
+image:
+document.getElementById("summaryImg").src,
+
+size: selectedSize,
+
+payment: payment,
+
+status: "Placed",
+
+estimatedDays: 5,
+
+deliveryDate:
+new Date(
+Date.now() + 5*24*60*60*1000
+).toLocaleDateString(),
+
+date: new Date().toLocaleDateString(),
+
+address: customerAddress
+
+};
+
+fetch("http://localhost:5000/place-order",{
+
+method:"POST",
+
+headers:{
+"Content-Type":"application/json"
+},
+
+body:JSON.stringify({
+
+orderId:newOrder.id,
+
+customerName:
+newOrder.address.name,
+
+phone:
+newOrder.address.phone,
+
+address:
+newOrder.address.address,
+
+city:
+newOrder.address.city,
+
+productName:
+newOrder.title,
+
+price:
+newOrder.price,
+
+image:
+newOrder.image,
+
+size:
+newOrder.size,
+
+payment:
+newOrder.payment,
+
+status:
+newOrder.status,
+
+deliveryDate:
+newOrder.deliveryDate
+
+})
+
+})
+.then(res=>res.json())
+.then(data=>{
+
+console.log(data);
+
+})
+.catch(err=>{
+
+console.log(err);
+
+});
+
+orders.unshift(newOrder);
+
+localStorage.setItem(
+"orders",
+JSON.stringify(orders)
+);
+
+}
+
+document.addEventListener("click",function(e){
+
+const card = e.target.closest(".pay-card");
+
+if(!card) return;
+
+document
+.querySelectorAll(".pay-card")
+.forEach(c=>c.classList.remove("active-pay"));
+
+card.classList.add("active-pay");
+
+card.querySelector("input").checked = true;
+
+});
+
+function openHelp(index){
+
+document.getElementById(
+"helpPopup"
+).style.bottom = "0";
+
+}
+
+function closeHelp(){
+
+document.getElementById(
+"helpPopup"
+).style.bottom = "-100%";
+
+}
+
+function changePhone(){
+
+let newPhone = prompt(
+"Enter new phone number"
+);
+
+if(!newPhone) return;
+
+customerAddress.phone = newPhone;
+
+localStorage.setItem(
+"savedAddress",
+JSON.stringify(customerAddress)
+);
+
+orders.forEach(order=>{
+order.address.phone = newPhone;
+});
+
+localStorage.setItem(
+"orders",
+JSON.stringify(orders)
+);
+
+alert("Phone Number Updated ✅");
+
+closeHelp();
+
+renderOrders();
+
+}
+
+function changeDeliveryAddress(){
+
+closeHelp();
+
+document.getElementById(
+"addressEditPopup"
+).style.bottom = "0";
+
+document.getElementById("editName").value =
+customerAddress.name || "";
+
+document.getElementById("editPhone").value =
+customerAddress.phone || "";
+
+document.getElementById("editCity").value =
+customerAddress.city || "";
+
+document.getElementById("editAddress").value =
+customerAddress.address || "";
+
+}
+
+function closeAddressEditPopup(){
+
+document.getElementById(
+"addressEditPopup"
+).style.bottom = "-100%";
+
+}
+
+function saveEditedAddress(){
+
+customerAddress = {
+
+name:
+document.getElementById("editName").value,
+
+phone:
+document.getElementById("editPhone").value,
+
+city:
+document.getElementById("editCity").value,
+
+address:
+document.getElementById("editAddress").value
+
+};
+
+localStorage.setItem(
+"savedAddress",
+JSON.stringify(customerAddress)
+);
+
+orders.forEach(order=>{
+
+order.address = {
+...customerAddress
+};
+
+});
+
+localStorage.setItem(
+"orders",
+JSON.stringify(orders)
+);
+
+closeAddressEditPopup();
+
+alert("Address Updated ✅");
+
+}
+
+window.onload = function(){
+
+const btn =
+document.getElementById("confirmCancelBtn");
+
+if(btn){
+btn.onclick = confirmCancelOrder;
+}
+
+};
+
+</script>
+
+<!-- BOTTOM NAV -->
+<div class="bottom-nav">
+
+<a href="#" class="nav-item active">
+<span>🏠</span>
+<p>Home</p>
+</a>
+
+<a href="#" class="nav-item">
+<span>📂</span>
+<p>Categories</p>
+</a>
+
+<a href="#" class="nav-item">
+<span>🔥</span>
+<p>New</p>
+</a>
+
+<a href="#" class="nav-item" onclick="openOrders()">
+<span>📦</span>
+<p>Orders</p>
+</a>
+
+<a href="#" class="nav-item" onclick="openProfile()">
+<span>👤</span>
+<p>Profile</p>
+</a>
+
+</div>
+
+<!-- FULL PRODUCT PAGE -->
+<div class="product-page" id="productPage">
+
+  <div class="product-header">
+    <span class="back-btn" onclick="closeProduct()">←</span>
+    <span>❤</span>
+  </div>
+
+  <!-- CONTAINER START -->
+  <div class="product-container">
+
+    <img id="ppImg" class="product-img">
+
+    <div class="product-details">
+
+      <div class="p-title" id="ppTitle"></div>
+
+      <div class="p-price">
+        <span id="ppPrice"></span>
+        <span class="p-old">₹2,999</span>
+      </div>
+
+      <!-- SIZE -->
+      <h4 style="margin-top:20px;">Select Size</h4>
+      <div class="size-box">
+        <div class="size" onclick="selectSize(this)">S</div>
+        <div class="size" onclick="selectSize(this)">M</div>
+        <div class="size" onclick="selectSize(this)">L</div>
+        <div class="size" onclick="selectSize(this)">XL</div>
+      </div>
+
+      <!-- QUANTITY -->
+      <h4 style="margin-top:20px;">Quantity</h4>
+      <div class="qty-box">
+        <button class="qty-btn" onclick="changeQty(-1)">−</button>
+        <div class="qty-num" id="qtyNum">1</div>
+        <button class="qty-btn" onclick="changeQty(1)">+</button>
+      </div>
+
+      <p style="margin-top:20px;color:#555;">
+        Premium quality fabric. Comfortable fit.
+        Easy return available within 15 days.
+      </p>
+
+    </div>
+
+  </div>
+  <!-- CONTAINER END -->
+
+  <!-- BOTTOM BUTTONS -->
+  <div class="bottom-buy">
+    <button class="add-btn" onclick="addCart(this)">
+      🛒 Add To Bag
+    </button>
+    <button class="buy-btn" onclick="openSizePopup()">
+⚡ Buy Now
+</button>
+  </div>
+
+</div>
+
+<!-- WISHLIST PAGE -->
+<div class="product-page" id="wishlistPage">
+
+<div class="product-header">
+<span class="back-btn" onclick="closeWishlist()">←</span>
+<h2>My Wishlist</h2>
+</div>
+
+<div id="wishlistItems" style="padding:20px;">
+
+</div>
+
+</div>
+
+<!-- CART PAGE -->
+<div class="product-page" id="cartPage">
+
+<div class="product-header">
+<span class="back-btn" onclick="closeCart()">←</span>
+<h2>My Cart</h2>
+</div>
+
+<div id="cartItems" style="padding:20px;">
+
+</div>
+
+<div class="bottom-buy">
+<button class="buy-btn" style="width:100%;">
+Place Order
+</button>
+</div>
+
+</div>
+
+<!-- PROFILE PAGE -->
+<div class="product-page" id="profilePage">
+
+<div class="product-header">
+<span class="back-btn" onclick="closeProfile()">←</span>
+<h2>My Account</h2>
+</div>
+
+<div style="padding:25px;color:black;">
+
+<div style="
+background:#f5f5f5;
+padding:20px;
+border-radius:15px;
+display:flex;
+justify-content:space-between;
+align-items:center;
+margin-bottom:25px;
+">
+
+<div>
+<h2 style="margin:0;" id="profileName">Hello, Guest</h2>
+<p style="color:#666;">Login for exclusive offers</p>
+</div>
+
+<button style="
+background:#e60023;
+color:white;
+border:none;
+padding:12px 25px;
+border-radius:8px;
+cursor:pointer;
+"
+onclick="handleLogin()">
+Log In
+</button>
+
+</div>
+
+<div class="profile-card">
+<h3>Account Settings</h3>
+
+<div class="profile-item">🌐 Language</div>
+<div class="profile-item">🔔 Notifications</div>
+<div class="profile-item">📞 Help Center</div>
+<div class="profile-item">📦 My Orders</div>
+<div class="profile-item">❤️ Wishlist</div>
+<div class="profile-item">⚙ Settings</div>
+
+</div>
+
+</div>
+
+</div>
+
+<div class="login-popup" id="loginPopup">
+
+<div class="login-box">
+
+<span class="close-login" onclick="closeLogin()">✕</span>
+
+<div class="urban-logo">
+URBAN<span>STYLE</span>
+</div>
+
+<h2>Log in for the best experience</h2>
+
+<p class="login-text">
+Enter your phone number to continue
+</p>
+
+<div id="phoneLogin">
+
+<div class="phone-box">
+
+<select>
+<option>+91</option>
+</select>
+
+<input type="text" placeholder="Phone Number">
+
+</div>
+
+<a href="#" class="email-link" onclick="showEmailLogin()">
+Use Email-ID
+</a>
+
+</div>
+
+<div id="emailLogin" style="display:none;">
+
+<div class="phone-box">
+
+<input type="email" placeholder="Enter Email">
+
+</div>
+
+<a href="#" class="email-link" onclick="showPhoneLogin()">
+Use Phone Number
+</a>
+
+</div>
+
+<p class="terms">
+By continuing, you agree to UrbanStyle Terms & Privacy Policy
+</p>
+
+<button class="continue-btn" onclick="sendOTP()">
+Continue
+</button>
+
+</div>
+</div>
+
+<!-- CHECKOUT PAGE -->
+<div class="product-page" id="checkoutPage">
+
+<div class="product-header">
+<span class="back-btn" onclick="closeCheckout()">←</span>
+<h2>Delivery Address</h2>
+</div>
+
+<div style="padding:20px;">
+
+<input id="custName" type="text" placeholder="Full Name"
+style="width:100%;padding:15px;margin-bottom:15px;">
+
+<input id="custPhone" type="text" placeholder="Phone Number"
+style="width:100%;padding:15px;margin-bottom:15px;">
+
+<textarea id="custAddress"
+placeholder="Full Address"
+style="width:100%;height:120px;padding:15px;"></textarea>
+
+<button
+style="width:100%;margin-top:20px;"
+onclick="placeOrderFinal()">
+Confirm Order
+</button>
+
+</div>
+
+</div>
+
+<!-- SIZE POPUP -->
+
+<div id="sizePopup" style="
+position:fixed;
+bottom:-100%;
+left:0;
+width:100%;
+background:white;
+border-radius:25px 25px 0 0;
+padding:25px;
+box-sizing:border-box;
+z-index:999999;
+transition:0.4s;
+color:black;
+">
+
+<div style="display:flex;justify-content:space-between;align-items:center;">
+<h2>Select Size</h2>
+<span onclick="closeSizePopup()" style="font-size:30px;cursor:pointer;">✕</span>
+</div>
+
+<div style="display:flex;gap:10px;margin-top:20px;">
+
+<button class="size-option" onclick="chooseSize(this,'S')">S</button>
+<button class="size-option" onclick="chooseSize(this,'M')">M</button>
+<button class="size-option" onclick="chooseSize(this,'L')">L</button>
+<button class="size-option" onclick="chooseSize(this,'XL')">XL</button>
+
+</div>
+
+<p style="margin-top:15px;color:#e60023;">
+Only 5 left
+</p>
+
+<button id="sizeContinueBtn"
+onclick="goToAddress()"
+style="
+width:100%;
+margin-top:20px;
+background:#ddd;
+color:black;
+padding:15px;
+border:none;
+border-radius:12px;
+font-size:18px;
+"
+disabled>
+Continue
+</button>
+
+</div>
+
+<!-- ADDRESS PAGE -->
+
+<div class="product-page" id="addressPage">
+
+<div class="product-header">
+<span class="back-btn"
+onclick="closeAddress()">←</span>
+<h2>Delivery Address</h2>
+</div>
+
+<div style="padding:25px;">
+
+<div style="
+background:white;
+padding:25px;
+border-radius:20px;
+box-shadow:0 5px 20px rgba(0,0,0,.1);
+">
+
+<h2 style="
+margin-top:0;
+color:#111;
+font-size:26px;
+">
+📍 Delivery Details
+</h2>
+
+<p style="color:#777;">
+Where should we deliver your order?
+</p>
+
+<input id="fullName"
+type="text"
+placeholder="Full Name"
+style="
+width:100%;
+padding:16px;
+margin-top:15px;
+border:1px solid #ddd;
+border-radius:12px;
+box-sizing:border-box;
+">
+
+<input id="mobileNumber"
+type="text"
+placeholder="Phone Number"
+style="
+width:100%;
+padding:16px;
+margin-top:15px;
+border:1px solid #ddd;
+border-radius:12px;
+box-sizing:border-box;
+">
+
+<div style="
+display:flex;
+gap:10px;
+margin-top:15px;
+">
+
+<input id="pinCode"
+type="text"
+placeholder="Pincode"
+style="
+flex:1;
+padding:16px;
+border:1px solid #ddd;
+border-radius:12px;
+">
+
+<input id="city"
+type="text"
+placeholder="City"
+style="
+flex:1;
+padding:16px;
+border:1px solid #ddd;
+border-radius:12px;
+">
+
+</div>
+
+<textarea
+id="fullAddress"
+placeholder="House No, Building, Road, Area"
+style="
+width:100%;
+height:120px;
+padding:16px;
+margin-top:15px;
+border:1px solid #ddd;
+border-radius:12px;
+box-sizing:border-box;
+"></textarea>
+
+<button
+onclick="saveAddress()"
+style="
+width:100%;
+margin-top:20px;
+padding:18px;
+background:linear-gradient(135deg,#e60023,#ff4d6d);
+border:none;
+border-radius:14px;
+font-size:18px;
+font-weight:bold;
+color:white;
+">
+Save & Continue
+</button>
+
+</div>
+</div>
+
+</div>div>
+
+<div class="product-page" id="orderSummaryPage">
+
+<div class="product-header">
+<span class="back-btn" onclick="closeOrderSummary()">←</span>
+<h2>Order Summary</h2>
+<div style="
+display:flex;
+justify-content:center;
+align-items:center;
+gap:15px;
+margin-top:15px;
+margin-bottom:20px;
+">
+
+<div style="
+width:35px;
+height:35px;
+border-radius:50%;
+background:#4CAF50;
+color:white;
+display:flex;
+align-items:center;
+justify-content:center;
+">
+✓
+</div>
+
+<div style="
+width:60px;
+height:3px;
+background:#4CAF50;
+"></div>
+
+<div style="
+width:35px;
+height:35px;
+border-radius:50%;
+background:#e60023;
+color:white;
+display:flex;
+align-items:center;
+justify-content:center;
+">
+2
+</div>
+
+<div style="
+width:60px;
+height:3px;
+background:#ddd;
+"></div>
+
+<div style="
+width:35px;
+height:35px;
+border-radius:50%;
+background:#ddd;
+color:#666;
+display:flex;
+align-items:center;
+justify-content:center;
+">
+3
+</div>
+
+</div>
+</div>
+
+<div style="padding:20px;color:black;">
+
+<div style="
+background:white;
+padding:20px;
+border-radius:15px;
+box-shadow:0 2px 10px rgba(0,0,0,.08);
+margin-bottom:15px;
+">
+
+<div style="
+display:flex;
+justify-content:space-between;
+align-items:center;
+">
+
+<h3>Delivery Address</h3>
+
+<button
+onclick="changeAddress()"
+style="
+background:#e60023;
+color:white;
+border:none;
+padding:10px 18px;
+border-radius:10px;
+cursor:pointer;
+">
+Change
+</button>
+
+</div>
+
+<p id="summaryAddress"></p>
+
+</div>
+
+<div style="
+background:white;
+padding:20px;
+border-radius:15px;
+box-shadow:0 2px 10px rgba(0,0,0,.08);
+">
+
+<img id="summaryImg"
+style="
+width:120px;
+height:120px;
+object-fit:cover;
+border-radius:12px;
+">
+
+<h3 id="summaryTitle"></h3>
+
+<p id="summarySize"></p>
+
+<p id="summaryPrice"
+style="
+font-size:22px;
+font-weight:bold;
+color:#e60023;
+"></p>
+
+</div>
+
+<button
+onclick="openPaymentPage()"
+style="
+width:100%;
+margin-top:20px;
+padding:18px;
+background:#f5c518;
+border:none;
+border-radius:14px;
+font-size:18px;
+font-weight:bold;
+">
+Continue To Payment
+</button>
+
+</div>
+
+</div>
+
+<div class="product-page" id="paymentPage">
+
+<div class="product-header">
+<span class="back-btn" onclick="closePaymentPage()">←</span>
+<h2>Payment</h2>
+</div>
+
+<div style="padding:20px;color:black;">
+
+<h2 style="margin-bottom:20px;">Choose Payment Method</h2>
+
+<div class="pay-card active-pay">
+<input type="radio" name="payment" value="COD" checked>
+<span>💵</span>
+<div>
+<h4>Cash on Delivery</h4>
+<p>Pay when your order arrives</p>
+</div>
+</div>
+
+<div class="pay-card">
+<input type="radio" name="payment" value="UPI">
+<span>📱</span>
+<div>
+<h4>UPI</h4>
+<p>GPay, PhonePe, Paytm</p>
+</div>
+</div>
+
+<div class="pay-card">
+<input type="radio" name="payment" value="Card">
+<span>💳</span>
+<div>
+<h4>Credit / Debit Card</h4>
+<p>Visa, Mastercard, RuPay</p>
+</div>
+</div>
+
+<div class="pay-card">
+<input type="radio" name="payment" value="Net Banking">
+<span>🏦</span>
+<div>
+<h4>Net Banking</h4>
+<p>All major banks supported</p>
+</div>
+</div>
+
+<div class="pay-card">
+<input type="radio" name="payment" value="Wallet">
+<span>👛</span>
+<div>
+<h4>Wallets</h4>
+<p>Amazon Pay, Mobikwik</p>
+</div>
+</div>
+
+<button onclick="placeFinalOrder()" class="pay-btn">
+Proceed To Pay
+</button>
+
+</div>
+</div>
+
+<div id="successPage" class="product-page" style="display:none;">
+
+<div style="
+height:100vh;
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+text-align:center;
+padding:20px;
+">
+
+<div style="font-size:80px;">✅</div>
+
+<h1 style="color:#00a650;">Order Placed!</h1>
+
+<div id="successCard"
+style="
+margin-top:20px;
+padding:20px;
+background:#f5fff7;
+border:2px solid #00a650;
+border-radius:15px;
+min-width:300px;
+">
+
+<p id="successPayment"></p>
+
+<p>
+<b>Order ID:</b>
+<span id="orderId"></span>
+</p>
+
+<p>
+<b>Estimated Delivery:</b>
+3-5 Days
+</p>
+
+</div>
+
+<button onclick="location.reload()"
+style="
+margin-top:20px;
+padding:15px 30px;
+border:none;
+border-radius:10px;
+background:#fb641b;
+color:white;
+font-size:18px;
+font-weight:bold;
+cursor:pointer;
+">
+Continue Shopping
+</button>
+
+</div>
+
+</div>
+
+<!-- MY ORDERS PAGE -->
+
+<div class="product-page" id="ordersPage">
+
+<div class="product-header">
+<span class="back-btn" onclick="closeOrders()">←</span>
+<h2>My Orders</h2>
+</div>
+
+<div id="ordersContainer" style="
+padding:20px;
+color:black;
+">
+</div>
+
+</div>
+
+<!-- ORDER DETAILS PAGE -->
+
+<div class="product-page" id="orderDetailsPage">
+
+<div class="product-header">
+<span class="back-btn" onclick="closeOrderDetails()">←</span>
+<h2>Order Details</h2>
+</div>
+
+<div id="orderDetailsContent"
+style="
+padding:20px;
+color:black;
+">
+</div>
+
+</div>
+
+<div id="helpPopup" style="
+position:fixed;
+left:0;
+bottom:-100%;
+width:100%;
+background:white;
+border-radius:25px 25px 0 0;
+padding:25px;
+box-sizing:border-box;
+z-index:999999;
+transition:.4s;
+color:black;
+">
+
+<div style="
+display:flex;
+justify-content:space-between;
+align-items:center;
+">
+
+<h2 style="margin:0;">
+Need Help?
+</h2>
+
+<span
+onclick="closeHelp()"
+style="
+font-size:32px;
+cursor:pointer;
+">
+✕
+</span>
+
+</div>
+
+<div
+onclick="changePhone()"
+style="
+padding:18px 0;
+border-bottom:1px solid #eee;
+cursor:pointer;
+">
+📞 Change Phone Number
+</div>
+
+<div
+onclick="changeDeliveryAddress()"
+style="
+padding:18px 0;
+border-bottom:1px solid #eee;
+cursor:pointer;
+">
+📍 Change Delivery Address
+</div>
+
+<div
+onclick="chatSupport()"
+style="
+padding:18px 0;
+border-bottom:1px solid #eee;
+cursor:pointer;
+">
+💬 Chat With Us
+</div>
+
+<div
+style="
+padding:18px 0;
+cursor:pointer;
+">
+❓ Order Related Issue
+</div>
+
+</div>
+
+<div id="addressEditPopup" style="
+position:fixed;
+left:0;
+bottom:-100%;
+width:100%;
+background:white;
+border-radius:25px 25px 0 0;
+padding:25px;
+box-sizing:border-box;
+z-index:999999;
+transition:.4s;
+color:black;
+max-height:90vh;
+overflow:auto;
+">
+
+<div style="
+display:flex;
+justify-content:space-between;
+align-items:center;
+margin-bottom:20px;
+">
+
+<h2>Edit Address</h2>
+
+<span
+onclick="closeAddressEditPopup()"
+style="
+font-size:30px;
+cursor:pointer;
+">
+✕
+</span>
+
+</div>
+
+<input id="editName" type="text" placeholder="Full Name"
+style="width:100%;padding:15px;margin-bottom:12px;border:1px solid #ddd;border-radius:12px;">
+
+<input id="editPhone" type="text" placeholder="Phone Number"
+style="width:100%;padding:15px;margin-bottom:12px;border:1px solid #ddd;border-radius:12px;">
+
+<input id="editCity" type="text" placeholder="City"
+style="width:100%;padding:15px;margin-bottom:12px;border:1px solid #ddd;border-radius:12px;">
+
+<textarea id="editAddress"
+placeholder="Full Address"
+style="
+width:100%;
+height:120px;
+padding:15px;
+border:1px solid #ddd;
+border-radius:12px;
+box-sizing:border-box;
+"></textarea>
+
+<button
+onclick="saveEditedAddress()"
+style="
+width:100%;
+margin-top:15px;
+padding:16px;
+background:#e60023;
+color:white;
+border:none;
+border-radius:12px;
+font-weight:bold;
+">
+Save Changes
+</button>
+
+</div>
+
+<div id="cancelPopup" style="
+position:fixed;
+left:0;
+bottom:-100%;
+width:100%;
+background:white;
+border-radius:25px 25px 0 0;
+padding:25px;
+box-sizing:border-box;
+z-index:999999;
+transition:.4s;
+color:black;
+">
+
+<h2>Cancel Order?</h2>
+
+<p style="color:#666;">
+This action cannot be undone.
+</p>
+
+<button
+id="confirmCancelBtn"
+onclick="confirmCancelOrder()"
+style="
+width:100%;
+padding:16px;
+background:#e60023;
+color:white;
+border:none;
+border-radius:12px;
+font-weight:bold;
+margin-top:15px;
+">
+Yes, Cancel Order
+</button>
+
+<button
+onclick="closeCancelPopup()"
+style="
+width:100%;
+padding:16px;
+background:#e60023;
+color:white;
+border:none;
+border-radius:12px;
+font-weight:bold;
+margin-top:10px;
+">
+Keep Order
+</button>
+
+</div>
+
+<div class="product-page" id="cancelReasonPage">
+
+<div class="product-header">
+<span class="back-btn" onclick="closeCancelReason()">←</span>
+<h2>Request Cancellation</h2>
+</div>
+
+<div style="padding:20px;color:black;">
+
+<div id="cancelProductBox"></div>
+
+<h2 style="margin-top:25px;">
+Reason For Cancellation
+</h2>
+
+<div id="cancelReasons">
+
+<label class="reason-item">
+<input type="radio" name="cancelReason"
+value="Delivery taking too long">
+Delivery taking too long
+</label>
+
+<label class="reason-item">
+<input type="radio" name="cancelReason"
+value="Change delivery address">
+Change delivery address
+</label>
+
+<label class="reason-item">
+<input type="radio" name="cancelReason"
+value="Change contact details">
+Change contact details
+</label>
+
+<label class="reason-item">
+<input type="radio" name="cancelReason"
+value="Found better price">
+Found better price
+</label>
+
+<label class="reason-item">
+<input type="radio" name="cancelReason"
+value="Other">
+Other
+</label>
+
+</div>
+
+<button
+onclick="submitCancellation()"
+style="
+width:100%;
+margin-top:30px;
+padding:16px;
+background:#e60023;
+color:white;
+border:none;
+border-radius:12px;
+font-weight:bold;
+">
+Submit Request
+</button>
+
+</div>
+
+</div>
+
+<div class="product-page" id="cancelSuccessPage">
+
+<div style="
+padding:40px 25px;
+color:black;
+">
+
+<div style="
+font-size:80px;
+text-align:center;
+">
+✅
+</div>
+
+<h1 style="
+text-align:center;
+margin-top:20px;
+">
+Cancellation Confirmed
+</h1>
+
+<p style="
+text-align:center;
+color:#666;
+margin-top:10px;
+">
+Your cancellation request has been processed successfully.
+</p>
+
+<div style="
+margin-top:40px;
+background:white;
+border-radius:15px;
+overflow:hidden;
+box-shadow:0 2px 10px rgba(0,0,0,.08);
+">
+
+<div
+onclick="goHomeAfterCancel()"
+style="
+padding:22px;
+border-bottom:1px solid #eee;
+cursor:pointer;
+font-size:20px;
+display:flex;
+justify-content:space-between;
+align-items:center;
+">
+
+<span>Continue Shopping</span>
+
+<span>›</span>
+
+</div>
+
+<div
+onclick="goOrdersAfterCancel()"
+style="
+padding:22px;
+cursor:pointer;
+font-size:20px;
+display:flex;
+justify-content:space-between;
+align-items:center;
+">
+
+<span>View All Orders</span>
+
+<span>›</span>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</body>
+</html>

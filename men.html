@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Men Collection | UrbanStyle</title>
+<style>
+body{font-family:Arial;margin:0;background:#f5f5f5}
+.top-banner{background:#2874f0;color:white;padding:10px;text-align:center;font-weight:600}
+h2{padding:20px}
+.products{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:20px;padding:20px}
+.card{background:white;border-radius:12px;overflow:hidden;box-shadow:0 4px 12px rgba(0,0,0,0.1);transition:0.3s}
+.card:hover{transform:translateY(-6px)}
+.card img{width:100%;height:280px;object-fit:cover}
+.card-content{padding:15px}
+.price{font-size:18px;font-weight:bold}
+.old{text-decoration:line-through;color:gray;margin-left:6px}
+.discount{color:green;font-weight:600;margin-left:6px}
+.rating{background:#ffe600;padding:4px 8px;border-radius:20px;font-size:13px;display:inline-block;margin-bottom:6px}
+.qty-box{
+display:flex;
+align-items:center;
+gap:15px;
+margin-top:20px;
+}
+
+.qty-btn{
+width:45px;
+height:45px;
+border:none;
+background:#f1f1f1;
+font-size:24px;
+border-radius:10px;
+cursor:pointer;
+transition:0.3s;
+}
+
+.qty-btn:hover{
+background:#e60023;
+color:white;
+transform:scale(1.08);
+}
+
+#qtyNum{
+font-size:22px;
+font-weight:bold;
+min-width:25px;
+text-align:center;
+}
+</style>
+</head>
+<body>
+
+<div class="top-banner">FREE SHIPPING on all orders above ₹499</div>
+<h2>Men Collection</h2>
+
+<div class="products">
+
+<div class="card" onclick="openCard(this)"><img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab"><div class="card-content"><div class="rating">⭐ 4.5</div><h3>Oversized T-Shirt</h3><div class="price">₹599 <span class="old">₹1599</span><span class="discount">62% OFF</span></div></div></div>
+
+<div class="card" onclick="openCard(this)"><img src="https://images.unsplash.com/photo-1556821840-3a63f95609a7"><div class="card-content"><div class="rating">⭐ 4.3</div><h3>Street Hoodie</h3><div class="price">₹1499 <span class="old">₹2999</span><span class="discount">50% OFF</span></div></div></div>
+
+<div class="card" onclick="openCard(this)"><img src="https://images.unsplash.com/photo-1520975916090-3105956dac38"><div class="card-content"><div class="rating">⭐ 4.6</div><h3>Denim Jacket</h3><div class="price">₹2499 <span class="old">₹4999</span><span class="discount">50% OFF</span></div></div></div>
+
+<div class="card" onclick="openCard(this)"><img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff"><div class="card-content"><div class="rating">⭐ 4.7</div><h3>Running Shoes</h3><div class="price">₹1999 <span class="old">₹3999</span><span class="discount">50% OFF</span></div></div></div>
+
+<div class="card" onclick="openCard(this)"><img src="https://images.unsplash.com/photo-1503341455253-b2e723bb3dbb"><div class="card-content"><div class="rating">⭐ 4.2</div><h3>Casual Shirt</h3><div class="price">₹999 <span class="old">₹1999</span><span class="discount">50% OFF</span></div></div></div>
+
+<div class="card" onclick="openCard(this)"><img src="https://images.unsplash.com/photo-1602810318383-e386cc2a3ccf"><div class="card-content"><div class="rating">⭐ 4.4</div><h3>Formal Blazer</h3><div class="price">₹2999 <span class="old">₹5999</span><span class="discount">50% OFF</span></div></div></div>
+
+<div class="card" onclick="openCard(this)"><img src="https://images.unsplash.com/photo-1584865288642-42078afe6942"><div class="card-content"><div class="rating">⭐ 4.5</div><h3>Track Pants</h3><div class="price">₹899 <span class="old">₹1799</span><span class="discount">50% OFF</span></div></div></div>
+
+<div class="card" onclick="openCard(this)"><img src="https://images.unsplash.com/photo-1618354691373-d851c5c3a990"><div class="card-content"><div class="rating">⭐ 4.3</div><h3>Cargo Pants</h3><div class="price">₹1799 <span class="old">₹3599</span><span class="discount">50% OFF</span></div></div></div>
+
+<div class="card" onclick="openCard(this)"><img src="https://images.unsplash.com/photo-1544441893-675973e31985"><div class="card-content"><div class="rating">⭐ 4.6</div><h3>Winter Jacket</h3><div class="price">₹3499 <span class="old">₹6999</span><span class="discount">50% OFF</span></div></div></div>
+
+<div class="card" onclick="openCard(this)"><img src="https://images.unsplash.com/photo-1593030761757-71fae45fa0e7"><div class="card-content"><div class="rating">⭐ 4.4</div><h3>Cap</h3><div class="price">₹399 <span class="old">₹799</span><span class="discount">50% OFF</span></div></div></div>
+
+</div>
+
+<script>
+function addCart(name){
+alert(name + " added to cart");
+}
+
+function addWish(btn){
+btn.classList.toggle("active");
+}
+
+function openCard(card){
+let name = card.querySelector("h3").innerText;
+let price = card.querySelector(".price").childNodes[0].textContent.trim();
+let img = card.querySelector("img").src;
+
+document.body.innerHTML = `
+<div style="padding:20px;font-family:Arial;background:white;height:100vh;">
+<div onclick="location.reload()" style="cursor:pointer;font-size:24px;">← Back</div>
+
+<div style="display:flex;gap:50px;max-width:1000px;margin:40px auto;">
+<img src="${img}" style="width:350px;height:450px;object-fit:cover;border-radius:20px;">
+
+<div>
+<h1>${name}</h1>
+<h2 style="color:#e60023;">${price}</h2>
+
+<p style="margin-top:30px;font-size:20px;">Quantity</p>
+
+<div class="qty-box">
+<button class="qty-btn" onclick="changeQty(-1)">−</button>
+
+<span id="qtyNum">1</span>
+
+<button class="qty-btn" onclick="changeQty(1)">+</button>
+</div>
+</div>
+</div>
+
+<div style="position:fixed;bottom:0;left:0;width:100%;display:flex;">
+<button style="flex:1;padding:18px;background:black;color:white;border:none;font-size:18px;">Add To Cart</button>
+<button style="flex:1;padding:18px;background:#f5c518;border:none;font-size:18px;">Buy Now</button>
+</div>
+</div>
+`;
+}
+let qty = 1;
+
+function changeQty(num){
+qty += num;
+
+if(qty < 1){
+qty = 1;
+}
+
+document.getElementById("qtyNum").innerText = qty;
+}
+</script>
+
+</body>
+</html>
+
